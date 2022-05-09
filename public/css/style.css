@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --text: #675541;
+    --light: #E7E2D3;
+    --med:#627133;
+}
+
+body{
+    background: var(--light);
+    color: var(--text);
+}
+/* =======================================================login/signup*/
+.login_box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    margin-top: 40px;
+}
+.signin {
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+}
+.loginInput{
+    font-size: 20px;
+}
+button {
+    padding: 5px;
+}
+
+/* navbar look */
+ul {
+    display: flex;
+    padding: 20px;
+}
+a {
+    color: var(--text);
+}
+li {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    font-size: 20px;
+}
+/* ====================================== the book club */
+/* all title pages */
+.titlepages {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 40;
+    margin-left: 23px;
+    font-size: 60px;
+}
