@@ -10,18 +10,14 @@ Blog.belongsTo(User);
 User.hasMany(Comment);
 Comment.belongsTo(User);
 
-Blog.hasOne(Book);
-Book.belongsToMany(Blog)
+Book.hasMany(Blog);
+Blog.belongsTo(Book);
 
 Blog.hasMany(Comment);
 Comment.belongsTo(Blog);
 
-Book.hasMany(Genre);
-Genre.belongsTo(Book);
-
-
-
-// need to add associations
+Book.belongsToMany(Genre, {through: 'bookgenre'});
+Genre.belongsToMany(Book, {through: 'bookgenre'});
 
 module.exports = {
     User,
