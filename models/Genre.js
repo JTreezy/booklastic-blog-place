@@ -4,15 +4,10 @@ const sequelize = require('../config/connection');
 class Genre extends Model {}
 
 Genre.init({
-    genre_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        primaryKey: true,
-        autoIncrement: true,
-      },
     name: {
          type: DataTypes.STRING,
-         allowNull:false
+         allowNull:false,
+         unique:true
     },
 },{
     sequelize,
