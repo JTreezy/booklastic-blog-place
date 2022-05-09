@@ -4,11 +4,11 @@ const {User, Blog, Book, Comment, Genre} = require("../../models");
 
 //find all
 router.get("/", (req, res) => {
-  Blog.findAll({ 
-    include: [User, Comment, {Book, include: [Genre]}]
+  Genre.findAll({ 
+    include: [Book]
   })
-    .then(dbBlogs => {
-      res.json(dbBlogs);
+    .then(dbGenres => {
+      res.json(dbGenres);
     })
     .catch(err => {
       console.log(err);
@@ -17,11 +17,11 @@ router.get("/", (req, res) => {
 });
 //find one
 router.get("/:id", (req, res) => {
-  Blog.findByPk(req.params.id,
-    {include: [User, Comment, {Book, include: [Genre]}]
+  Genre.findByPk(req.params.id,
+    {include: [Book]
   })
-    .then(dbBlog => {
-      res.json(dbBlog);
+    .then(dbGenre => {
+      res.json(dbGenre);
     })
     .catch(err => {
       console.log(err);
@@ -29,18 +29,16 @@ router.get("/:id", (req, res) => {
     });
 });
 
-//create Blog
+//create genre
 router.post("/", (req, res) => {
   if(!req.session.user){
     return res.status(401).json({msg:"Please log in first!"})
 }
-  Blog.create({
-    title:req.body.title,
-    review:req.body.body,
-    UserId:req.session.user.id
+  Genre.create({
+    name:req.body.name,
   })
-    .then(newBlog => {
-      res.json(newBlog);
+    .then(newGenre => {
+      res.json(newGenre);
     })
     .catch(err => {
       console.log(err);
@@ -48,14 +46,14 @@ router.post("/", (req, res) => {
     });
 });
 
-//update Blog
+//update genre
 router.put("/:id", (req, res) => {
-  Blog.update(req.body, {
+  Genre.update(req.body, {
     where: {
       id: req.params.id
     }
-  }).then(updatedBlog => {
-    res.json(updatedBlog);
+  }).then(updatedGenre => {
+    res.json(updatedGenre);
   })
   .catch(err => {
     console.log(err);
@@ -63,14 +61,14 @@ router.put("/:id", (req, res) => {
   });
 });
 
-//delete a Blog
+//delete a genre
 router.delete("/:id", (req, res) => {
-  Blog.destroy({
+  Genre.destroy({
     where: {
       id: req.params.id
     }
-  }).then(delBlog => {
-    res.json(delBlog);
+  }).then(delGenre => {
+    res.json(delGenre);
   })
   .catch(err => {
     console.log(err);
