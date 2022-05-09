@@ -2,10 +2,19 @@ const express = require('express');
 const router = express.Router();
 
 const userRoutes = require("./userRoutes");
-router.use("/api/users",userRoutes)
+router.use("/api/users",userRoutes);
+
+const bookRoutes = require("./bookRoutes");
+router.use("/api/books",bookRoutes);
+
+const genreRoutes = require("./genreRoutes");
+router.use("/api/genres",genreRoutes);
 
 const blogRoutes = require("./blogRoutes");
-router.use("/api/blogs",blogRoutes)
+router.use("/api/blogs",blogRoutes);
+
+const commentRoutes = require("./commentRoutes");
+router.use("/api/comments",commentRoutes);
 
 const frontEnd = require("./frontEndRoutes");
 router.use("/",frontEnd)
