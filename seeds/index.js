@@ -1,36 +1,227 @@
 const sequelize = require("../config/connection")
-const {User,Blog} = require("../models")
+const {User,Blog,Genre,Comment,Book} = require("../models")
 
 const users = [
     {
-        username:"joe",
+        first_name:"brooke",
+        email:"brooke@brooke.com",
         password:"password"
     },
     {
-        username:"otherjoe",
-        password:"password1"
+        first_name:"andrew",
+        email:"andrew@andrew.com",
+        password:"password123"
     },
     {
-        username:"therealjoe",
-        password:"Password1"
+        first_name:"jonathan",
+        email:"jonathan@jonathan.com",
+        password:"password456"
+    },
+    {
+        first_name:"haley",
+        email:"haley@haley.com",
+        password:"password789"
+    }
+]
+
+const genres = [
+    {
+        name: "Fantasy"
+    },
+    {
+        name: "Literary fiction"
+    },
+    {
+        name: "Science fiction"
+    },
+    {
+        name: "Thriller/Suspense"
+    },
+    {
+        name: "Picture Book"
+    },
+    {
+        name: "Young Adult"
+    },
+    {
+        name: "Romance"
+    },
+    {
+        name: "Historical fiction"
+    },
+    {
+        name: "Memoir"
+    },
+    {
+        name: "Narrative"
+    },
+    {
+        name: "History"
+    },
+    {
+        name: "Self-Help"
+    },
+    {
+        name: "Health/Fitness"
+    },
+    {
+        name: "Business"
+    },
+    {
+        name: "True Adeventure/Crime"
+    },
+    {
+        name: "Psychology"
+    },
+    {
+        name: "Finance"
+    },
+    {
+        name: "Science/Technology"
+    }
+]
+
+const books = [
+    {
+        title: "Dare to Lead",
+        author: "Brene Brown",
+        genreId: 1
+    },
+    {
+        title: "Before We Were Yours",
+        author: "Lisa Wingate",
+        genreId: 4
+    },
+    {
+        title: "White Fragility: Why It's So Hard for White People to Talk About Racism",
+        author: "Robin DiAngelo",
+        genreId: 7
+
+    },
+    {
+        title: "Educated",
+        author: "Tara Westover",
+        genreId: 1
+    },
+    {
+        title: "The Nightingale",
+        author: "Kristin Hannah"
+    },
+    {
+        title: "The Giver of Stars",
+        author: "Jojo Moyes",
+        genreId: 1
+    },
+    {
+        title: "The Silent Patient",
+        author: "Alex Michaelides"
+    },
+    {
+        title: "Talking to Strangers",
+        author: "Malcolm Gladwell"
+    },
+    {
+        title: "Conviction",
+        author: "Denise Mina",
+        genreId: 5
+    },
+    {
+        title: "The Secrets We Kept",
+        author: "Lara Prescott"
+    },
+    {
+        title: "Bad Blood",
+        author: "John Carryrou"
+    },
+    {
+        title: "The Tattooist of Auschwitz",
+        author: "Heather Morris",
+        genreId: 6
+    },
+    {
+        title: "Everyday Millionaires",
+        author: "Chris Hogan"
+    },
+    {
+        title: "How Google Works",
+        author: "Eric Schmidt"
+    },
+    {
+        title: "The Little Book of Common Sense Investing",
+        author: "John C Bogle",
+        genreId: 2
+    },
+    {
+        title: "Born a Crime",
+        author: "Trevor Noah"
+    },
+    {
+        title: "I Will Teach You To Be Rich",
+        author: "Ramit Sethi",
+        genreId: 2
+    },
+    {
+        title: "Sapiens",
+        author: "Yuval Noah Harari"
+    },
+    {
+        title: "How to Win Friends and Influence People",
+        author: "Dale Carnegie",
+        genreId: 7
+    },
+    {
+        title: "Greenlights",
+        author: "Matthew McConaughey"
     }
 ]
 
 const blogs = [
     {
-        title:"my first blog",
-        body:"Welcome to my blog, im going to do this every day! Like share subscribe",
-        UserId:1
+        title:"my fave book",
+        review:"I love this book! It is my all time favorite!",
+        userId:1,
+        bookId:1
     },
     {
-        title:"my final blog",
-        body:"I cant do this anymore, blogging every day is too hard.  It was a fun half week yall",
-        UserId:1
+        title:"thriller",
+        review:"So suspenseful! Definitely recommend",
+        userId:2,
+        bookId:2
     },
     {
-        title:"Cats: a review",
-        body:"I love cats I love every kind of cat.  I want to hug all them but you cant. Cant hug every cat......Cant hug every cat. ",
-        UserId:2
+        title:"5/10",
+        review:"It was okay but not my favorite",
+        userId:3,
+        bookId:4
+    },
+    {
+        title:"Educational!",
+        review:"Long book but worth the read!",
+        userId:2,
+        bookId:6
+    }
+]
+
+const comments = [
+    {
+        body: "great post!",
+        userId: 2,
+        blogId: 1
+    },
+    {
+        body: "I agree with you on xxx but disagree about ...",
+        userId: 3,
+        blogId: 3
+    },
+    {
+        body: "i like this book too!",
+        userId: 1,
+        blogId: 4
+    },
+    {
+        body: "worst book ever - good review!",
+        userId: 1,
+        blogId: 3
     }
 ]
 
@@ -40,7 +231,10 @@ const feedMe = async ()=>{
         await User.bulkCreate(users,{
             individualHooks:true
         });
+        await Genre.bulkCreate(genres);
+        await Book.bulkCreate(books);
         await Blog.bulkCreate(blogs);
+        await Comment.bulkCreate(comments);
         process.exit(0);
     } catch(err){
         console.log(err)
