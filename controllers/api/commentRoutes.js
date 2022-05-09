@@ -4,11 +4,11 @@ const {User, Blog, Book, Comment, Genre} = require("../../models");
 
 //find all
 router.get("/", (req, res) => {
-  Blog.findAll({ 
-    include: [User, Comment, {Book, include: [Genre]}]
+  Comment.findAll({ 
+    include: [User, Blog]
   })
-    .then(dbBlogs => {
-      res.json(dbBlogs);
+    .then(dbComments => {
+      res.json(dbComments);
     })
     .catch(err => {
       console.log(err);
@@ -17,11 +17,11 @@ router.get("/", (req, res) => {
 });
 //find one
 router.get("/:id", (req, res) => {
-  Blog.findByPk(req.params.id,
-    {include: [User, Comment, {Book, include: [Genre]}]
+  Comment.findByPk(req.params.id,
+    {include: [User, Blog]
   })
-    .then(dbBlog => {
-      res.json(dbBlog);
+    .then(dbComment => {
+      res.json(dbComment);
     })
     .catch(err => {
       console.log(err);
@@ -29,18 +29,17 @@ router.get("/:id", (req, res) => {
     });
 });
 
-//create Blog
+//create Comment
 router.post("/", (req, res) => {
   if(!req.session.user){
     return res.status(401).json({msg:"Please log in first!"})
 }
-  Blog.create({
-    title:req.body.title,
-    review:req.body.body,
+Comment.create({
+    body:req.body.body,
     UserId:req.session.user.id
   })
-    .then(newBlog => {
-      res.json(newBlog);
+    .then(newComment => {
+      res.json(newComment);
     })
     .catch(err => {
       console.log(err);
@@ -48,14 +47,14 @@ router.post("/", (req, res) => {
     });
 });
 
-//update Blog
+//update Comment
 router.put("/:id", (req, res) => {
-  Blog.update(req.body, {
+  Comment.update(req.body, {
     where: {
       id: req.params.id
     }
-  }).then(updatedBlog => {
-    res.json(updatedBlog);
+  }).then(updatedComment => {
+    res.json(updatedComment);
   })
   .catch(err => {
     console.log(err);
@@ -63,14 +62,14 @@ router.put("/:id", (req, res) => {
   });
 });
 
-//delete a Blog
+//delete a Comment
 router.delete("/:id", (req, res) => {
-  Blog.destroy({
+  Comment.destroy({
     where: {
       id: req.params.id
     }
-  }).then(delBlog => {
-    res.json(delBlog);
+  }).then(delComment => {
+    res.json(delComment);
   })
   .catch(err => {
     console.log(err);

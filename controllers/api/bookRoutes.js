@@ -4,11 +4,11 @@ const {User, Blog, Book, Comment, Genre} = require("../../models");
 
 //find all
 router.get("/", (req, res) => {
-  Blog.findAll({ 
-    include: [User, Comment, {Book, include: [Genre]}]
+  Book.findAll({
+    include: [Blog, Genre]
   })
-    .then(dbBlogs => {
-      res.json(dbBlogs);
+    .then(dbBooks => {
+      res.json(dbBooks);
     })
     .catch(err => {
       console.log(err);
@@ -17,11 +17,9 @@ router.get("/", (req, res) => {
 });
 //find one
 router.get("/:id", (req, res) => {
-  Blog.findByPk(req.params.id,
-    {include: [User, Comment, {Book, include: [Genre]}]
-  })
-    .then(dbBlog => {
-      res.json(dbBlog);
+  Book.findByPk(req.params.id,{include: [Blog, Genre]})
+    .then(dbBook => {
+      res.json(dbBook);
     })
     .catch(err => {
       console.log(err);
@@ -29,18 +27,18 @@ router.get("/:id", (req, res) => {
     });
 });
 
-//create Blog
+//create book
 router.post("/", (req, res) => {
   if(!req.session.user){
-    return res.status(401).json({msg:"Please log in first!"})
+    return res.status(401).json({msg:"Please login!"})
 }
-  Blog.create({
+  Book.create({
     title:req.body.title,
-    review:req.body.body,
-    UserId:req.session.user.id
+    author:req.body.body,
+    // genreId
   })
-    .then(newBlog => {
-      res.json(newBlog);
+    .then(newBook => {
+      res.json(newBook);
     })
     .catch(err => {
       console.log(err);
@@ -48,14 +46,14 @@ router.post("/", (req, res) => {
     });
 });
 
-//update Blog
+//update book
 router.put("/:id", (req, res) => {
-  Blog.update(req.body, {
+  Book.update(req.body, {
     where: {
       id: req.params.id
     }
-  }).then(updatedBlog => {
-    res.json(updatedBlog);
+  }).then(updatedBook => {
+    res.json(updatedBook);
   })
   .catch(err => {
     console.log(err);
@@ -63,9 +61,9 @@ router.put("/:id", (req, res) => {
   });
 });
 
-//delete a Blog
+//delete a book
 router.delete("/:id", (req, res) => {
-  Blog.destroy({
+  Book.destroy({
     where: {
       id: req.params.id
     }
