@@ -5,7 +5,7 @@ const {User,Blog} = require('../models');
 router.get("/",(req,res)=>{
     Blog.findAll().then(blogs=>{
         console.log(blogs)
-        const hbsBlogs = blogs.map(blog=>blog.get({plain:true}))
+        const hbsBlogs = blogs.map(blog=>blog.get({plain:true}))  //serialize so that handlebars can work with sequelize
         console.log("==========")
         console.log(hbsBlogs)
         const loggedIn = req.session.user?true:false

@@ -1,31 +1,33 @@
 console.log("login linked1")
-document.querySelector("#login").addEventListener("submit",e=>{
+document.querySelector("#loginButton").addEventListener("submit",e=>{
     e.preventDefault();
     const userObj = {
-        username:document.querySelector("#loginUsername").value,
-        password:document.querySelector("#loginPassword").value,
+        useremail:document.querySelector("#loginuser").value,
+        password:document.querySelector("#loginpass").value,
     }
     console.log(userObj)
-    fetch("/api/users/login",{
+    fetch("api/users/login",{
         method:"POST",
         body:JSON.stringify(userObj),
         headers:{
             "Content-Type":"application/json"
         }
     }).then(res=>{
-        if(res.ok){
-            location.href="/profile"
+        if(res.ok){  //200 status code
+            console.log("logged in")
+            res.redirect("/")
         } else {
             alert("trumpet sound")
         }
     })
 })
 
-document.querySelector("#signup").addEventListener("submit",e=>{
+document.querySelector("#signupButton").addEventListener("submit",e=>{
     e.preventDefault();
     const userObj = {
-        username:document.querySelector("#signupUsername").value,
-        password:document.querySelector("#signupPassword").value,
+        firstname:document.querySelector("#logname").value,
+        useremail:document.querySelector("#loginemail").value,
+        password:document.querySelector("#loginpass").value,
     }
     console.log(userObj)
     fetch("/api/users/",{
@@ -36,7 +38,7 @@ document.querySelector("#signup").addEventListener("submit",e=>{
         }
     }).then(res=>{
         if(res.ok){
-            location.href="/profile"
+            res.redirect("/")
         } else {
             alert("trumpet sound")
         }
