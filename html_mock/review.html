@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booklastic</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">
+    <link rel="stylesheet" href="../public/css/style.css">
+</head>
+<body style="background: #E7E2D3;">
+    <!-- Navigation bar might include this in the main handlebars -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background: #8DA675 !important">
+        <div class="container-fluid">
+          <h3 class="navbar-brand fw-bolder" href="#" style="color: #675541">📖  Booklastic 📖</h3>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="#dashboard">Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#thebookclub">The Bookclub</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#mylibrary">My Library</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#logout">Logout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav> 
+    <!-- also used in the my library and most likely the bookclub -->
+    <h2 style="font-size: 60px; padding: 20px;"> How Was The Read?</h2>
+    <!-- search bar -->
+    <div class="container">
+        <div class="row height d-flex justify-content-center align-items-center">
+          <div class="col-md-10">
+            <div class="search d-flex">
+              <i class="fa fa-search"></i>
+              <input type="text" class="form-control mx-1" placeholder="Type Book Title Here!">
+              <button class="btn btn-primary">Find My Book</button>
+            </div>
+          </div>
+        </div>
+    </div>
+    <!-- this is where the authore and title autopopulate-->
+    <div class="container">
+        <ul class="m-3 row">
+            <li class="list-group-item disabled mb-2 col-8" id="autopopTitle">Title</li>
+            <li class="list-group-item disabled mb-2 col" id="autopopAuth">Author</li>
+        </ul>
+    </div>
+    <!-- this is where the genre goes -->
+    <div class="container">
+        <h3 class="d-flex justify-content-center p-1">📖 What Genre Does Your Book Fit 📖</h3>
+        <div class="form-check">
+            <div class="row d-flex justify-content-between">
+                <div class="col-sm-1">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" unchecked/>
+                    <label class="form-check-label" for="flexCheckChecked">Fantasy</label>
+                </div>
+                <div class="col-sm-1">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" unchecked/>
+                    <label class="form-check-label" for="flexCheckChecked">Literary Fiction</label>
+                </div>
+                <div class="col-sm-1">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" unchecked/>
+                    <label class="form-check-label" for="flexCheckChecked">Science Fiction</label>
+                </div>
+                <div class="col-sm-1">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" unchecked/>
+                    <label class="form-check-label" for="flexCheckChecked">Thriller / Suspense</label>
+                </div>
+                <div class="col-sm-1">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" unchecked/>
+                    <label class="form-check-label" for="flexCheckChecked">Picture Book</label>
+                </div>
+                <div class="col-sm-1">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" unchecked/>
+                    <label class="form-check-label" for="flexCheckChecked">Young Adult</label>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-between">
+                <div class="col-sm-1">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" unchecked/>
+                    <label class="form-check-label" for="flexCheckChecked">Romance</label>
+                </div>
+                <div class="col-sm-1">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" unhecked/>
+                    <label class="form-check-label" for="flexCheckChecked">Historical Fiction</label>
+                </div>
+                <div class="col-sm-1">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" unchecked/>
+                    <label class="form-check-label" for="flexCheckChecked">Memoir</label>
+                </div>
+                <div class="col-sm-1">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" unchecked/>
+                    <label class="form-check-label" for="flexCheckChecked">Narrative</label>
+                </div>
+                <div class="col-sm-1">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" unchecked/>
+                    <label class="form-check-label" for="flexCheckChecked">History</label>
+                </div>
+                <div class="col-sm-1">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" unchecked/>
+                    <label class="form-check-label" for="flexCheckChecked">Self-Help</label>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-between">
+                <div class="col-sm-1">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" unchecked/>
+                    <label class="form-check-label" for="flexCheckChecked">Health / Fitness</label>
+                </div>
+                <div class="col-sm-1">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" unchecked/>
+                    <label class="form-check-label" for="flexCheckChecked">Business</label>
+                </div>
+                <div class="col-sm-1">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" unchecked/>
+                    <label class="form-check-label" for="flexCheckChecked">True Adventure / Crime</label>
+                </div>
+                <div class="col-sm-1">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" unchecked/>
+                    <label class="form-check-label" for="flexCheckChecked">Psychology</label>
+                </div>
+                <div class="col-sm-1">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" unchecked/>
+                    <label class="form-check-label" for="flexCheckChecked">Finance</label>
+                </div>
+                <div class="col-sm-1">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" unchecked/>
+                    <label class="form-check-label" for="flexCheckChecked">Science / Technology</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- this is where the review input starts -->
+    <div class="container">
+        <h3 class="d-flex justify-content-center p-5">Your Review</h3>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">Review Title</span>
+            </div>
+                <input type="text" class="form-control" aria-label="Title" aria-describedby="basic-addon1">
+        </div>
+    </div>
+    <div class="container">
+        <div class="form-group">
+            <label for="comment">Review 📝</label>
+            <textarea class="form-control" rows="5" id="comment"></textarea>
+        </div>
+    </div>
+    <div class="d-flex justify-content-end m-5">
+        <button type="button" class="btn btn-link" style="margin-right: 120px;"><img src="../assets/send.png" alt="paper air plane" style="width: 40px; "></button>
+    </div>
+</body>
