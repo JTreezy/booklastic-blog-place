@@ -6,8 +6,8 @@ router.use('/api', apiRoutes)
 const frontEnd = require("./frontend");
 router.use("/",frontEnd)
 
-const frontEndRoutes = require('./frontEndRoutes')
-router.use('/', frontEndRoutes)
+const userRoutes = require('./api/userRoutes')
+router.use('/', userRoutes)
 //when we make a request to the homepage, we'll render the home.handlebars template and inject it into the {{{body}}} in main.handlebars
 router.get('/',(req,res)=>{
     res.render('home')
