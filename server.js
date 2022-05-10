@@ -29,9 +29,9 @@ app.use(session(sess));
 // Static directory
 app.use(express.static('public'));
 
-const hbs = exphbs.create({});
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
+const hbs = exphbs.create({});  //create handlebars engine
+app.engine('handlebars', hbs.engine);  //create a veiw engine
+app.set('view engine', 'handlebars');  //set out to use the view engine
 
 app.use("/", allRoutes);
 
