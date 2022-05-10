@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const {User,Blog,Comment, Genre, Book} = require('../../models');
+const withAuth = require('../../util/auth');
 
 router.get("/",(req,res)=>{
     Blog.findAll().then(blogs=>{
@@ -20,10 +21,19 @@ router.get("/login",(req,res)=>{
     res.render("login")
 })
 
-router.get("/profile",(req,res)=>{
-    if(!req.session.user){
-        return res.redirect("/login")
-    }
+router.get('/mylibrary',withAuth, (req, res) => {
+    res.render('mylibrary')
+})
+
+router.get('/bookclub', (req, res) => {
+    res.render('bookclub')
+})
+
+router.get('/review', withAuth, (req, res) => {
+    res.render('review')
+})
+
+router.get("/profile",withAuth,(req,res)=>{
     User.findByPk(req.session.user.id,{
         include:[Blog]
     }).then(userData=>{
