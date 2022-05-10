@@ -25,8 +25,36 @@
         </div>
     </nav> 
         <!-- get blogs to show up on here-->
-    {{#each blogs}}
-        <h3>{{title}}</h3>
-        <p>{{body}}</p>
-        <hr>
-    {{/each}}
+<h2 style="font-size: 80px; padding: 20px;">Bookclub</h2>
+<div class="container">
+    <div class="row row-cols-3">
+        <div class="col">
+            {{#each blogs}}
+            <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
+                <div class="card-header">{{title}}</div>
+                <div class="card-body">
+                    <ul class="d-flex justify-content-between" style="text-decoration: underline !important; list-style-type: none !important; padding: 0 !important;">
+                        <li><h5 class="card-title">{{book.title}}</h5></li>
+                        <li><h5 class="card-title">{{book.author}}</h5></li>
+                    </ul>
+                    <h5 class="card-title">{{bookGenre}}</h5>
+                    <p class="card-text">{{review}}</p>
+                <div class="card-footer bg-transparent d-flex justify-content-between p-0">
+                    <ul class="d-flex p-0" style="list-style-type:none;">
+                        <li style="padding-top:5px; padding-right: 5px;">
+                            <button type="button" class="btn btn-link" style="padding:10px;"id="deletebtn">
+                                <img src="../assets/trash-can.png" alt="trashcan" style="max-width: 20px;">
+                            </button>
+                        </li>
+                        <li style="padding-top:5px; padding-right: 5px;">
+                            <button type="button" class="btn btn-link" id="editbtn" style="padding:10px;">
+                                <img src="../assets/pencil.png" alt="pencil" style="max-width: 20px;">
+                            </button>
+                        </li>
+                    </ul>
+                    <h6 class="d-flex align-items-center">{{user.first_name}}</h6>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
