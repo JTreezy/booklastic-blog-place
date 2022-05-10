@@ -1,9 +1,9 @@
 console.log("login linked1")
-document.querySelector("#loginButton").addEventListener("submit",e=>{
+document.querySelector("#loginButton").addEventListener("click",e=>{
     e.preventDefault();
     const userObj = {
-        useremail:document.querySelector("#loginuser").value,
-        password:document.querySelector("#loginpass").value,
+        email:document.querySelector("#loginEmail").value,
+        password:document.querySelector("#loginPassword").value,
     }
     console.log(userObj)
     fetch("api/users/login",{
@@ -15,19 +15,20 @@ document.querySelector("#loginButton").addEventListener("submit",e=>{
     }).then(res=>{
         if(res.ok){  //200 status code
             console.log("logged in")
-            res.redirect("/")
+            // res.render("home")
+            location.href="/main"
         } else {
             alert("trumpet sound")
         }
     })
 })
 
-document.querySelector("#signupButton").addEventListener("submit",e=>{
+document.querySelector("#signupButton").addEventListener("click",e=>{
     e.preventDefault();
     const userObj = {
-        firstname:document.querySelector("#logname").value,
-        useremail:document.querySelector("#loginemail").value,
-        password:document.querySelector("#loginpass").value,
+        first_name:document.querySelector("#signupFirstname").value,
+        email:document.querySelector("#signupEmail").value,
+        password:document.querySelector("#signupPassword").value,
     }
     console.log(userObj)
     fetch("/api/users/",{
@@ -38,7 +39,8 @@ document.querySelector("#signupButton").addEventListener("submit",e=>{
         }
     }).then(res=>{
         if(res.ok){
-            res.redirect("/")
+            console.log("signup")
+            // res.redirect("/")
         } else {
             alert("trumpet sound")
         }
