@@ -15,8 +15,6 @@ router.get('/',(req,res)=>{
 
 
 
-
-
 // router.get("/setfaveanimal/:faveanimal",(req,res)=>{
 //     req.session.favAnimal = req.params.faveanimal;
 //     console.log(req.session);
