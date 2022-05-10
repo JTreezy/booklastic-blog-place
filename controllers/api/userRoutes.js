@@ -35,7 +35,7 @@ router.get("/:id", (req, res) => {
 
 //create user
 router.post("/", (req, res) => {
-  User.create(req.body)
+  User.create(req.body, {individualHooks: true})
     .then(newUser => {
       req.session.user = {
         id:newUser.id,
@@ -71,7 +71,6 @@ router.post("/login", (req, res) => {
     } else {
       return res.status(400).json({msg:"wrong login credentials"})
     }
-    console.log("logging in!")
   }).catch(err => {
       console.log(err);
       res.status(500).json({ msg: "an error occured", err });
