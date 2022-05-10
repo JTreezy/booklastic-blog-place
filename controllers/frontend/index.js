@@ -3,7 +3,7 @@ const router = express.Router();
 const {User,Blog,Comment, Genre, Book} = require('../../models');
 const withAuth = require('../../util/auth');
 
-router.get("/bookclub",(req,res)=>{
+router.get("/",(req,res)=>{
     Blog.findAll({
         include: [{model:User}, {model:Book, include: [{model:Genre}]}]
     }).then(blogs=>{
@@ -13,9 +13,8 @@ router.get("/bookclub",(req,res)=>{
         console.log(hbsBlogs)
         console.log('===========')
         console.log('success')
-        console.log(hbsBlogs[0].book)
         const loggedIn = req.session.user?true:false
-        res.render("bookclub",{blogs:hbsBlogs,loggedIn,username:req.session.user?.username}) 
+        res.render("home",{blogs:hbsBlogs,loggedIn,username:req.session.user?.username}) 
     })
 })
 
@@ -34,13 +33,13 @@ router.get('/mylibrary',withAuth, (req, res) => {
         hbsData.loggedIn = req.session.user?true:false
         console.log(hbsData)
         console.log('===========')
-        console.log(hbsData.blogs[0].book)
         // TODO: PARSE FOR NESTED GENRE-NAME IF EXIST, USERNAME IF NEEDED??? ON THEIR OWN PAGE, SO USERNAME NOT NECESSARY
         res.render("mylibrary", hbsData)
     })
 })
 
 router.get('/review', withAuth, (req, res) => {
+    // pass off "logged in"
     res.render('review')
 })
 
