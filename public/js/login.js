@@ -1,5 +1,5 @@
 console.log("login linked1")
-document.querySelector("#loginButton").addEventListener("submit",e=>{
+document.querySelector("#loginButton").addEventListener("click",e=>{
     e.preventDefault();
     const userObj = {
         email:document.querySelector("#loginEmail").value,
@@ -23,7 +23,7 @@ document.querySelector("#loginButton").addEventListener("submit",e=>{
     })
 })
 
-document.querySelector("#signupButton").addEventListener("submit",e=>{
+document.querySelector("#signupButton").addEventListener("click",e=>{
     e.preventDefault();
     const userObj = {
         first_name:document.querySelector("#signupFirstname").value,
