@@ -16,13 +16,21 @@ router.get("/",(req,res)=>{
 
 router.get("/login",(req,res)=>{
     if(req.session.user){
-        return res.redirect("/profile")  //if I am logged in, redirect to 
+        return res.redirect("/mylibrary")  
     }
     res.render("login")
 })
 
 router.get('/mylibrary',withAuth, (req, res) => {
-    res.render('mylibrary')
+    User.findByPk(req.session.user.id, {
+        include: [{model:Blog, include: [Book]}]
+    }).then(userData => {
+        const hbsData = userData.get({plain:true})
+        hbsData.loggedIn = req.session.user?true:false
+        console.log(hbsData)
+        // TODO: PARSE FOR BOOK TITLE, AUTHOR, NESTED GENRE-NAME, USERNAME IF NEEDED??? ON THEIR OWN PAGE, SO USERNAME NOT NECESSARY
+        res.render("mylibrary", hbsData)
+    })
 })
 
 router.get('/bookclub', (req, res) => {
