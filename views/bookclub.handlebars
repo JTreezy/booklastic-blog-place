@@ -23,9 +23,9 @@
     </nav> 
         <!-- get blogs to show up on here-->
 <h2 style="font-size: 80px; padding: 20px;">Bookclub</h2>
-<div class="container">
-    <div class="row row-cols-3">
-        <div class="col">
+<div class="container d-flex">
+    <div>
+        <div class="p-1">
             {{#each blogs}}
             <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
                 <div class="card-header">{{title}}</div>
@@ -40,12 +40,12 @@
                     <ul class="d-flex p-0" style="list-style-type:none;">
                         <li style="padding-top:5px; padding-right: 5px;">
                             <button type="button" class="btn btn-link" style="padding:10px;"id="deletebtn">
-                                <img src="../assets/trash-can.png" alt="trashcan" style="max-width: 20px;">
+                                <img src="/css/trash-can.png" alt="trashcan" style="max-width: 20px;">
                             </button>
                         </li>
                         <li style="padding-top:5px; padding-right: 5px;">
                             <button type="button" class="btn btn-link" id="editbtn" style="padding:10px;">
-                                <img src="../assets/pencil.png" alt="pencil" style="max-width: 20px;">
+                                <img src="/css/pencil.png" alt="pencil" style="max-width: 20px;">
                             </button>
                         </li>
                     </ul>
