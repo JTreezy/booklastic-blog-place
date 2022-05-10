@@ -15,10 +15,9 @@ document.querySelector("#loginButton").addEventListener("click",e=>{
     }).then(res=>{
         if(res.ok){  //200 status code
             console.log("logged in")
-            // res.render("home")
-            location.href="/main"
+            location.href="/mylibrary"
         } else {
-            alert("trumpet sound")
+            alert("Login failed; please try again!")
         }
     })
 })
@@ -39,10 +38,10 @@ document.querySelector("#signupButton").addEventListener("click",e=>{
         }
     }).then(res=>{
         if(res.ok){
-            console.log("signup")
-            // res.redirect("/")
+            console.log("signed up")
+            location.href="/mylibrary"
         } else {
-            alert("trumpet sound")
+            alert("Signup failed; please try again!")
         }
     })
 })
