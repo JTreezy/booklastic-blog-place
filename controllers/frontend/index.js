@@ -46,4 +46,7 @@ router.get("/profile",withAuth,(req,res)=>{
     })
 })
 
+// to get the images to run on the page
+
+
 module.exports = router;

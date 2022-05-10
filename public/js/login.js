@@ -16,6 +16,8 @@ document.querySelector("#loginButton").addEventListener("click",e=>{
         if(res.ok){  //200 status code
             console.log("logged in")
             location.href="/mylibrary"
+            // changing the stylesheet in login 
+            document.getElementById('css-source').setAttribute("href", "/css/style.css")
         } else {
             alert("Login failed; please try again!")
         }
@@ -40,8 +42,11 @@ document.querySelector("#signupButton").addEventListener("click",e=>{
         if(res.ok){
             console.log("signed up")
             location.href="/mylibrary"
+            // changing the stylesheet in signup 
+            document.getElementById('css-source').setAttribute("href", "/css/style.css")
         } else {
             alert("Signup failed; please try again!")
         }
     })
 })
+

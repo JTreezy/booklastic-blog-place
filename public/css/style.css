@@ -14,34 +14,34 @@ body{
 h3 {
     color: #675541 !important;
 }
-.btn{  
-    border-radius: 4px;
-    height: 44px;
-    font-size: 13px;
-    font-weight: 600;
-    text-transform: uppercase;
-    transition: all 200ms linear;
-    padding: 0 30px;
-    letter-spacing: 1px;
-    display: -webkit-inline-flex;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    border: none;
-    background-color: #ffeba7;
+#customBTN{  
+    border-radius: 4px !important;
+    height: 44px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    transition: all 200ms linear !important;
+    padding: 0 30px !important;
+    letter-spacing: 1px !important;
+    display: -webkit-inline-flex !important;
+    display: -ms-inline-flexbox !important; 
+    display: inline-flex !important;
+    align-items: center!important ;
+    justify-content: center !important;
+    text-align: center !important;
+    border: none !important;
+    background-color: #ffeba7 !important;
     color: #627133;
-    box-shadow: 0 8px 24px 0 rgba(255,235,167,.2);
+    box-shadow: 0 8px 24px 0 rgba(255,235,167,.2) !important;
   }
-.btn:active,
-.btn:focus{  
-  background-color: #ffeba7;
-  color: #627133;
-  box-shadow: 0 8px 24px 0 rgba(16,39,112,.2);
+#customBTN:active,
+#customBTN:focus{  
+  background-color: #ffeba7 !important;
+  color: #627133 !important;
+  box-shadow: 0 8px 24px 0 rgba(16,39,112,.2) !important;
 }
-.btn:hover{  
-  background-color: #627133;
-  color: #ffeba7;
-  box-shadow: 0 8px 24px 0 rgba(16,39,112,.2);
+#customBTN:hover{  
+  background-color: #627133 !important;
+  color: #ffeba7 !important;
+  box-shadow: 0 8px 24px 0 rgba(16,39,112,.2) !important;
 }
