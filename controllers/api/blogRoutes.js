@@ -21,7 +21,7 @@ router.get("/:id", (req, res) => {
     include: [User, Comment, {model: Book, include: [Genre]}]
   })
     .then(dbBlog => {
-      res.json(dbBlog);
+      res.json(dbBlog)
     })
     .catch(err => {
       console.log(err);
