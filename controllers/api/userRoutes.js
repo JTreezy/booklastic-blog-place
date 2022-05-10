@@ -6,7 +6,7 @@ const bcrypt  = require("bcrypt");
 //find all
 router.get("/", (req, res) => {
   User.findAll({
-    include:[Blog]
+    include:[Blog, Comment]
   })
     .then(dbUsers => {
       res.json(dbUsers);
