@@ -47,5 +47,7 @@ router.get('*', (req, res) => {
     res.redirect('/bookblub')
 })
 
+// to get the images to run on the page
+
 
 module.exports = router;
