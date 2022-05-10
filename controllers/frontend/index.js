@@ -5,13 +5,14 @@ const withAuth = require('../../util/auth');
 
 router.get("/bookclub",(req,res)=>{
     Blog.findAll({
-        include: [{model:Book, include: [{model:Genre}]}]
+        include: [{model:User}, {model:Book, include: [{model:Genre}]}]
     }).then(blogs=>{
-        console.log(blogs)
+        // console.log(blogs)
         const hbsBlogs = blogs.map(blog=>blog.get({plain:true})) 
         console.log("==========")
         console.log(hbsBlogs)
         console.log('===========')
+        console.log('success')
         console.log(hbsBlogs[0].book)
         const loggedIn = req.session.user?true:false
         res.render("bookclub",{blogs:hbsBlogs,loggedIn,username:req.session.user?.username}) 
@@ -43,9 +44,9 @@ router.get('/review', withAuth, (req, res) => {
     res.render('review')
 })
 
-router.get('*', (req, res) => {
-    res.redirect('/bookblub')
-})
+// router.get('*', (req, res) => {
+//     res.redirect('/bookclub')
+// })
 
 // to get the images to run on the page
 

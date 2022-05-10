@@ -28,16 +28,16 @@
 <div class="container d-flex">
     <div>
         <div class="p-1">
-            {{#each reviews as |review|}}
+            {{#each blogs}}
             <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
-                <div class="card-header">{{review.reviewTitle}}</div>
+                <div class="card-header">{{title}}</div>
                 <div class="card-body">
                     <ul class="d-flex justify-content-between" style="text-decoration: underline !important; list-style-type: none !important; padding: 0 !important;">
-                        <li><h5 class="card-title">{{review.bookTitle}}</h5></li>
-                        <li><h5 class="card-title">{{review.bookAuthor}}</h5></li>
+                        <li><h5 class="card-title">{{book.title}}</h5></li>
+                        <li><h5 class="card-title">{{book.author}}</h5></li>
                     </ul>
                     <h5 class="card-title">{{review.bookGenre}}</h5>
-                    <p class="card-text">{{review.bookReview}}</p>
+                    <p class="card-text">{{review}}</p>
                 <div class="card-footer bg-transparent d-flex justify-content-between p-0">
                     <ul class="d-flex p-0" style="list-style-type:none;">
                         <li style="padding-top:5px; padding-right: 5px;">
@@ -51,59 +51,12 @@
                             </button>
                         </li>
                     </ul>
-                    <h6 class="d-flex align-items-center">{{review.userName}}</h6>
+                    <h6 class="d-flex align-items-center">{{first_name}}</h6>
                 </div>
             </div>
             {{/each}}
         </div>
     </div>
-<!-- end card 1 -->
-{{!-- NEED TO DELETE BEFORE RUNNING CODE! --}}
-<!-- beginning card 2 -->
-<div class="p-1">
-<div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
-    <div class="card-header">EXAMPLE HERE</div>
-    <div class="card-body">
-        <ul class="d-flex justify-content-between" style="text-decoration: underline !important; list-style-type: none !important; padding: 0 !important;">
-            <li><h5 class="card-title">Title</h5></li>
-            <li><h5 class="card-title">Author</h5></li>
-        </ul>
-      <h5 class="card-title">Genre</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <div class="card-footer bg-transparent d-flex justify-content-between p-0">
-          <ul class="d-flex p-0" style="list-style-type:none;">
-              <li style="padding-top:5px; padding-right: 5px;"><button type="button" class="btn btn-link" id="deletebtn" style="padding:10px;"><img src="/images/trash-can.png" alt="trashcan" style="max-width: 20px;"></button></li>
-              <li style="padding-top:5px; padding-right: 5px;"><button type="button" class="btn btn-link" id="editbtn" style="padding:10px;"><img src="/images/pencil.png" alt="pencil" style="max-width: 20px;"></button></li>
-          </ul>
-        <h6 class="d-flex align-items-center">@username</h6>
-      </div>
-</div>
-</div>
-</div>
-<!-- end card 2 -->
-<!-- beginning card 3 -->
-<div class="p-1">
-<div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
-    <div class="card-header">REVIEW TITLE</div>
-    <div class="card-body">
-        <ul class="d-flex justify-content-between" style="text-decoration: underline !important; list-style-type: none !important; padding: 0 !important;">
-            <li><h5 class="card-title">Title</h5></li>
-            <li><h5 class="card-title">Author</h5></li>
-        </ul>
-      <h5 class="card-title">Genre</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <div class="card-footer bg-transparent d-flex justify-content-between p-0">
-          <ul class="d-flex p-0" style="list-style-type:none;">
-              <li style="padding-top:5px; padding-right: 5px;"><button type="button" class="btn btn-link" id="deletebtn" style="padding:10px;"><img src="/images/trash-can.png" alt="trashcan" style="max-width: 20px;"></button></li>
-              <li style="padding-top:5px; padding-right: 5px;"><button type="button" class="btn btn-link" id="editbtn" style="padding:10px;"><img src="/images/pencil.png" alt="pencil" style="max-width: 20px;"></button></li>
-          </ul>
-        <h6 class="d-flex align-items-center">@username</h6>
-      </div>
-</div>
-</div>
-</div> --}}
-<!-- end card 3 -->
-{{!-- NEED TO DELETE BEFORE RUNNING WEBSITE--}}
 </div>
 </div>
 <div class="d-flex justify-content-center">
