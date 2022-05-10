@@ -105,7 +105,8 @@ const books = [
     },
     {
         title: "The Nightingale",
-        author: "Kristin Hannah"
+        author: "Kristin Hannah",
+        genreId: 2
     },
     {
         title: "The Giver of Stars",
@@ -114,11 +115,13 @@ const books = [
     },
     {
         title: "The Silent Patient",
-        author: "Alex Michaelides"
+        author: "Alex Michaelides",
+        genreId: 3
     },
     {
         title: "Talking to Strangers",
-        author: "Malcolm Gladwell"
+        author: "Malcolm Gladwell",
+        genreId: 5
     },
     {
         title: "Conviction",
@@ -127,11 +130,13 @@ const books = [
     },
     {
         title: "The Secrets We Kept",
-        author: "Lara Prescott"
+        author: "Lara Prescott",
+        genreId: 6
     },
     {
         title: "Bad Blood",
-        author: "John Carryrou"
+        author: "John Carryrou",
+        genreId: 8
     },
     {
         title: "The Tattooist of Auschwitz",
@@ -140,11 +145,13 @@ const books = [
     },
     {
         title: "Everyday Millionaires",
-        author: "Chris Hogan"
+        author: "Chris Hogan",
+        genreId: 9
     },
     {
         title: "How Google Works",
-        author: "Eric Schmidt"
+        author: "Eric Schmidt",
+        genreId: 10
     },
     {
         title: "The Little Book of Common Sense Investing",
@@ -153,7 +160,8 @@ const books = [
     },
     {
         title: "Born a Crime",
-        author: "Trevor Noah"
+        author: "Trevor Noah",
+        genreId: 12
     },
     {
         title: "I Will Teach You To Be Rich",
@@ -162,7 +170,8 @@ const books = [
     },
     {
         title: "Sapiens",
-        author: "Yuval Noah Harari"
+        author: "Yuval Noah Harari",
+        genreId: 13
     },
     {
         title: "How to Win Friends and Influence People",
@@ -171,7 +180,8 @@ const books = [
     },
     {
         title: "Greenlights",
-        author: "Matthew McConaughey"
+        author: "Matthew McConaughey",
+        genreId: 15
     }
 ]
 
