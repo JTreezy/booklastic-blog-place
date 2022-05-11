@@ -16,7 +16,10 @@
                         <li><h5 class="card-title">{{book.title}}</h5></li>
                         <li><h5 class="card-title">{{book.author}}</h5></li>
                     </ul>
-                    <h5 class="card-title">{{bookGenre}}</h5>
+                    {{!-- {{book.genres returns object object}} --}}
+                    {{#each book.genres}}
+                    <h5 class="card-title"><{{name}}/h5>
+                    {{/each}}
                     <p class="card-text">{{review}}</p>
                 <div class="card-footer bg-transparent d-flex justify-content-between p-0">
                     <ul class="d-flex p-0" style="list-style-type:none;">

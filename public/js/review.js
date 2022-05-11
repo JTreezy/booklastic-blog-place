@@ -76,7 +76,7 @@ airplaneButton.addEventListener("click",e=>{
     let review = comment.value;
     review = review.trim();
     if (!title || !review || !autopopTitle.value) {
-        alert('Please select a book then enter both a title and a review for your post!')
+        alert('Please select a book by clicking the "Submit" button before writing your review! Review must include both a title and a review body.')
         return;
     }
     const blogObj = {
