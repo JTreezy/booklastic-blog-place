@@ -38,6 +38,7 @@ router.post("/", (req, res) => {
     title:req.body.title,
     review:req.body.review,
     // TODO: Link book id
+// TODO: LINK USER
     // BookId: req.body.bookId,
     UserId:req.session.user.id
   })

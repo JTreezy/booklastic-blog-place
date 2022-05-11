@@ -42,12 +42,15 @@ bookSubmit.addEventListener("click", event => {
         }
     }).then(res=>{
         if(res.ok){ 
-            console.log(JSON.stringify(res))
-            // autopopTitle.textContent=bookInput.value;
+            return res.json()
         } else {
             alert("We don't have that book in our database yet! Please provide some more info.")
             // location.href('/newbook')
         }
+    }).then(data => {
+        console.log(data)
+        autopopTitle.textContent=data.title;
+        autopopAuth.textContent=data.author;
     })
 })
 

@@ -12,12 +12,6 @@ const app = express();
 
 const http = require('http').createServer(app);
 const io = new Server(http)
-io.on('connection', (socket) => {
-  console.log('user connected');
-  socket.on('disconnect', () => {
-    console.log('user disconnected');
-  });
-})
 
 const PORT = process.env.PORT || 3000;
 // Requiring our models for syncing
@@ -47,8 +41,15 @@ app.set('view engine', 'handlebars');  //set out to use the view engine
 app.use("/", allRoutes);
 
 sequelize.sync({ force: false }).then(function() {
-// keep app.listen as well??
-  http.listen(PORT, function() {
+http.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
+    io.on('connection', (socket) => {
+      console.log('user connected');
+      socket.on('disconnect', () => {
+        console.log('user disconnected');
+      });
+    })
   });
 });
+
+
