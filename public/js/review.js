@@ -12,7 +12,6 @@ pageLoad();
 function pageLoad() {
     fetch("/api/books", {
         method: "GET",
-        body: JSON.stringify()
     }).then (res => {
         if (res.ok) {
             return res.json()
@@ -22,7 +21,7 @@ function pageLoad() {
                 var book = data[i]
                 const newOptionEl = document.createElement('option');
                 newOptionEl.setAttribute('value', book.title);
-                newOptionEl.setAttribute('id', i);
+                newOptionEl.setAttribute('data-id', book_id);
                 bookList.append(newOptionEl)
             }
             // console.log(bookList)
@@ -34,8 +33,8 @@ bookSubmit.addEventListener("click", event => {
     var bookSelection = {
         title:bookInput.value};
     // console.log(bookSelection);
-    fetch("/api/books",{
-        method:"POST",
+    fetch(`/api/books/`,{
+        method:"GET",
         body:JSON.stringify(bookSelection),
         headers:{
             "Content-Type":"application/json"
@@ -43,7 +42,8 @@ bookSubmit.addEventListener("click", event => {
     }).then(res=>{
         if(res.ok){ 
             console.log(JSON.stringify(res))
-            // autopopTitle.textContent=bookInput.value;
+            autopopTitle.textContent=bookInput.value;
+            autopopAuthor.textContent=bookInput.id;
         } else {
             alert("We don't have that book in our database yet! Please provide some more info.")
             // OPEN NEW BOOK ENTRY MODAL

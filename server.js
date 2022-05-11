@@ -3,11 +3,20 @@ const exphbs = require("express-handlebars");
 const allRoutes = require("./controllers");
 const session = require("express-session");
 const sequelize = require("./config/connection");
+
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
+const {Server} = require('socket.io')
+
 
 // Sets up the Express App
 // =============================================================
 const app = express();
+const http = require('http').createServer(app);
+const io = new Server(http)
+io.on('connection', (socket) => {
+  console.log('user connected');
+})
+
 const PORT = process.env.PORT || 3000;
 // Requiring our models for syncing
 const { User, Blog } = require("./models");
@@ -36,7 +45,7 @@ app.set('view engine', 'handlebars');  //set out to use the view engine
 app.use("/", allRoutes);
 
 sequelize.sync({ force: false }).then(function() {
-  app.listen(PORT, function() {
+  http.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
 });
