@@ -43,9 +43,6 @@ router.get('/review', withAuth, (req, res) => {
     res.render('review')
 })
 
-router.get('*', (req, res) => {
-    res.redirect('/bookclub')
-})
 
 // to get the images to run on the page
 
