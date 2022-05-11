@@ -36,7 +36,10 @@ router.post("/", (req, res) => {
     if (!foundBook) {
       return res.status(400).json({msg: 'no book by that name'})
     }
-    return res.json(foundBook);
+    const hbsBook = foundBook.get({plain:true})
+    console.log(hbsBook)
+    // TODO:FIGURE THIS OUT
+    return res.render('review', {hbsBook});
   }).catch(err => {
       console.log(err);
       res.status(500).json({ msg: "an error occured", err });

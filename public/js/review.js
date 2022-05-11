@@ -46,7 +46,7 @@ bookSubmit.addEventListener("click", event => {
     }).then(res=>{
         if(res.ok){ 
             console.log(res)
-            autopopTitle.textContent=bookInput.value;
+            // autopopTitle.textContent=bookInput.value;
         } else {
             alert("We don't have that book in our database yet! Please provide some more info.")
             // OPEN MODAL

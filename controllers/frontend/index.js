@@ -39,8 +39,16 @@ router.get('/mylibrary',withAuth, (req, res) => {
 })
 
 router.get('/review', withAuth, (req, res) => {
+    const hbsData = {};
+    hbsData.loggedIn = req.session.user?true:false;
     // pass off "logged in"
-    res.render('review')
+    res.render('review', hbsData)
+})
+
+router.get('/bookclub', withAuth, (req, res) => {
+    const hbsData = {};
+    hbsData.loggedIn = req.session.user?true:false;
+    res.render('bookclub', hbsData)
 })
 
 // to get the images to run on the page
