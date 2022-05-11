@@ -37,10 +37,8 @@ router.post("/", (req, res) => {
   Blog.create({
     title:req.body.title,
     review:req.body.review,
-    // TODO: Link book id
-// TODO: LINK USER
-    // BookId: req.body.bookId,
-    UserId:req.session.user.id
+    bookId: req.body.bookId,
+    userId:req.session.user.id
   })
     .then(newBlog => {
       res.json(newBlog);
