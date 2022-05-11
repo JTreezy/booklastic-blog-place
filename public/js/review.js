@@ -68,9 +68,6 @@ bookSubmit.addEventListener("click", event => {
     })
 })
 
-// SAVE NEW BOOK TO DB 
-
-
 airplaneButton.addEventListener("click",e=>{
     console.log(e)
     e.preventDefault()

@@ -31,8 +31,8 @@ newairplaneButton.addEventListener("click", event => {
     const bookObj = {
         title: bookTitle,
         author: bookAuthor,
-        // NEED GENRES TO HAVE GENREID
-        // genreId: 
+        // TODO: Singular v multiple genres
+        genreId: bookGenre
     }
     fetch("/api/books", {
         method: "POST",
