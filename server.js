@@ -15,6 +15,10 @@ const http = require('http').createServer(app);
 const io = new Server(http)
 io.on('connection', (socket) => {
   console.log('user connected');
+  socket.on('disconnect', () => {
+    console.log('user disconnected');
+  });
+
 })
 
 const PORT = process.env.PORT || 3000;
