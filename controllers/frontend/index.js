@@ -14,6 +14,7 @@ router.get("/",(req,res)=>{
         console.log('===========')
         console.log('success')
         const loggedIn = req.session.user?true:false
+        hbsBlogs.first_name = req.session.user?.first_name;
         res.render("home",{blogs:hbsBlogs,loggedIn,first_name:req.session.user?.first_name}) 
     })
 })
@@ -31,6 +32,7 @@ router.get('/mylibrary',withAuth, (req, res) => {
     }).then(userData => {
         const hbsData = userData.get({plain:true})
         hbsData.loggedIn = req.session.user?true:false
+        hbsData.first_name = req.session.user?.first_name;
         console.log(hbsData)
         console.log('===========')
         // TODO: PARSE FOR NESTED GENRE-NAME IF EXIST, USERNAME IF NEEDED??? ON THEIR OWN PAGE, SO USERNAME NOT NECESSARY
@@ -39,24 +41,24 @@ router.get('/mylibrary',withAuth, (req, res) => {
 })
 
 router.get('/review', withAuth, (req, res) => {
-    const hbsData = {};
-    hbsData.loggedIn = req.session.user?true:false;
-    hbsData.first_name = 
-    // pass off "logged in"
-    res.render('review', hbsData)
+    const passoffData = {};
+    passoffData.loggedIn = req.session.user?true:false;
+    passoffData.first_name = req.session.user?.first_name;
+    res.render('review', passoffData)
 })
 
 router.get('/newbook', withAuth, (req, res) => {
-    const hbsData = {};
-    hbsData.loggedIn = req.session.user?true:false;
-    res.render('newbook', hbsData)
+    const passoffData = {};
+    passoffData.loggedIn = req.session.user?true:false;
+    passoffData.first_name = req.session.user?.first_name;
+    res.render('newbook', passoffData)
 })
 
 router.get('/bookclub', withAuth, (req, res) => {
-    const hbsData = {};
-    hbsData.loggedIn = req.session.user?true:false;
-    console.log(req.session.user.first_name)
-    res.render('bookclub', hbsData)
+    const passoffData = {};
+    passoffData.loggedIn = req.session.user?true:false;
+    passoffData.first_name = req.session.user?.first_name;
+    res.render('bookclub', passoffData)
 })
 
 // to get the images to run on the page
