@@ -39,17 +39,23 @@ app.engine('handlebars', hbs.engine);  //create a veiw engine
 app.set('view engine', 'handlebars');  //set out to use the view engine
 
 app.use("/", allRoutes);
+app.get('/bookclub', (req, res) => {
+  res.sendFile(__dirname + 'main');
+  console.log("session",req.session.user)
+});
 
 sequelize.sync({ force: false }).then(function() {
 http.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
     io.on('connection', (socket) => {
       console.log('user connected');
+      socket.on('chat message', (msg) => {
+        console.log('message: ' + msg);
+        io.emit('chat message', msg);
+      });
       socket.on('disconnect', () => {
         console.log('user disconnected');
       });
     })
   });
 });
-
-
