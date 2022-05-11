@@ -14,12 +14,20 @@ newairplaneButton.addEventListener("click", event => {
     let bookGenre = genreselection.value;
     let reviewTitle = newreviewTitle.value.trim();
     let reviewComment = newcomment.value.trim();
-// TODO:technically, someone could access this page by going to the URL and then enter a duplicate book
+
+    // check for data completion
+    if (!bookTitle && !bookAuthor && !reviewTitle && !reviewComment) {
+        alert('Oops! Please complete this page with a book title, book author, review title, and review!')
+        return location.reload();
+    } else if ((!bookTitle || !bookAuthor) && (!reviewTitle && !reviewComment)) {
+        alert("Please enter both the book title and author to add a book to our database! Optionally, please add a genre.")
+        return location.reload();
+    } else if ((reviewTitle || reviewComment) && (!bookTitle || !bookAuthor)) {
+        alert("We don't know what book your review is for! Please provide the book information.")
+        return location.reload();
+    } else {
+
     // SUBMISSION OF NEW BOOK
-    if (!bookTitle || !bookAuthor) {
-        alert('Please enter both the book title and author! Optionally, please add a genre.')
-        return;
-    }
     const bookObj = {
         title: bookTitle,
         author: bookAuthor,
@@ -34,16 +42,18 @@ newairplaneButton.addEventListener("click", event => {
         }
     }).then(res => {
         if(res.ok){
+            alert('Book added to our database!')
             return res.json()
-            console.log('yay')
         } else {
-            alert("error; please try again")
+            alert("Your book already exists in our database! Please select from the drop down.")
+            location.href='/review'
         }
     }).then (data => {
         console.log(data)            
         // SUBMISSION OF NEW REVIEW
         if (!reviewTitle || !reviewComment) {
-            alert('Please select a book then enter both a title and a review!')
+            alert('For your post, please enter both a title and a review!')
+            location.href='/review'
             return;
         }
         const blogObj = {
@@ -59,7 +69,6 @@ newairplaneButton.addEventListener("click", event => {
             }
         }).then(res=>{
             if(res.ok){
-                console.log('YAY')
                 location.href='/mylibrary'
             } else {
                 alert("error; please try again")
@@ -67,4 +76,5 @@ newairplaneButton.addEventListener("click", event => {
         })
     })
     }
+}
 )
