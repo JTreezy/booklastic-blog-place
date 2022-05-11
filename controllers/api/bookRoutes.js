@@ -39,18 +39,18 @@ router.post("/", (req, res) => {
     const hbsBook = foundBook.get({plain:true})
     console.log(foundBook)
     console.log('==============')
-    console.log(hbsBook)
-    
+    console.log(hbsBook)    
     // req.session.id = hbsBook.id;
     // req.session.title = hbsBook.title;
     // req.session.author = hbsBook.author;
     // req.session.genre = hbsBook.genre;
 
     // TODO:FIGURE THIS OUT
-    return res.render('review', {hbsBook});
+    return res.json(hbsBook);
   }).catch(err => {
       console.log(err);
-      res.status(500).json({ msg: "an error occured", err });
+      // res.status(500).json({ msg: "an error occured", err });
+      res.redirect('newbook')
     });
 });
 
