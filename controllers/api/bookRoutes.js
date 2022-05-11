@@ -27,7 +27,7 @@ router.get("/:id", (req, res) => {
     });
 });
 
-router.post("/", (req, res) => {
+router.post("/findbytitle", (req, res) => {
   Book.findOne({
     where:{
       title:req.body.title
@@ -61,8 +61,8 @@ router.post("/", (req, res) => {
 }
   Book.create({
     title:req.body.title,
-    author:req.body.body,
-    // genreId
+    author:req.body.author,
+    genreId:req.body.genreId
   })
     .then(newBook => {
       res.json(newBook);
