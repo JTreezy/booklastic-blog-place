@@ -1,4 +1,4 @@
-var dataList = document.querySelector("#bookList");
+var bookList = document.querySelector("#bookList");
 var bookSubmit = document.querySelector("#bookSubmit");
 const airplaneButton = document.querySelector("#airplaneButton");
 var bookInput = document.querySelector("#bookInput");
@@ -22,10 +22,10 @@ function pageLoad() {
                 var book = data[i]
                 const newOptionEl = document.createElement('option');
                 newOptionEl.setAttribute('value', book.title);
-                newOptionEl.setAttribute('id', i);
+                newOptionEl.setAttribute('data-id', book.id);
                 bookList.append(newOptionEl)
             }
-            // console.log(bookList)
+            console.log(bookList)
         })
 }
 
@@ -46,7 +46,7 @@ bookSubmit.addEventListener("click", event => {
             // autopopTitle.textContent=bookInput.value;
         } else {
             alert("We don't have that book in our database yet! Please provide some more info.")
-            // OPEN NEW BOOK ENTRY MODAL
+            // location.href('/newbook')
         }
     })
 })
@@ -79,6 +79,7 @@ airplaneButton.addEventListener("click",e=>{
     }).then(res=>{
         if(res.ok){
             console.log('YAY')
+            location.href('/mylibrary')
         } else {
             alert("error; please try again")
         }

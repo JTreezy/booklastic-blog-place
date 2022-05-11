@@ -3,7 +3,7 @@
     <!-- this is where the genre goes -->
  <div class="container">
         <h3 class="d-flex justify-content-center p-1">📖 What Genre Does Your Book Fit 📖</h3>
-        <div class="form-check">
+        <div class="form-check" id="genreselection">
             <div class="row d-flex justify-content-between">
                 <div class="col-sm-1 custom-control custom-checkbox">
                     <input class="custom-control-input" type="checkbox" value="" id="flexCheckChecked" unchecked/>
@@ -91,25 +91,31 @@
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1">Book Title</span>
             </div>
-            <input type="text" class="form-control" aria-label="Title" aria-describedby="basic-addon1" id="reviewTitle">
+            <input type="text" class="form-control" aria-label="Title" aria-describedby="basic-addon1" id="newbooktitle">
         </div>
         <!-- this is where the authors inut goes-->
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon1">Review Title</span>
+              <span class="input-group-text" id="basic-addon1">Author Title</span>
             </div>
-                <input type="text" class="form-control" aria-label="Title" aria-describedby="basic-addon1" id="reviewTitle">
+                <input type="text" class="form-control" aria-label="Title" aria-describedby="basic-addon1" id="newauthortitle">
             </div>
 </div>
 {{!-- the review  --}}
 <div class="container">
     <h3 class="d-flex justify-content-center p-5">Your Review</h3>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">Review Title</span>
+            </div>
+                <input type="text" class="form-control" aria-label="Title" aria-describedby="basic-addon1" id="newReviewTitle">
+        </div>
     <div class="form-group">
         <label for="comment">Review 📝</label>
-        <textarea class="form-control" rows="5" id="comment"></textarea>
+        <textarea class="form-control" rows="5" id="newReviewComment"></textarea>
     </div>
 </div>
 <div class="d-flex justify-content-end m-5">
     <button type="button" class="btn btn-link" style="margin-right: 120px;" id="airplaneButton"><img src="/images/send.png" alt="paper air plane" style="width: 40px;"></button>
 </div>
-    <script src="js/review.js"></script>
+    <script src="js/newbook.js"></script>

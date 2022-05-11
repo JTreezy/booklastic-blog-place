@@ -45,6 +45,12 @@ router.get('/review', withAuth, (req, res) => {
     res.render('review', hbsData)
 })
 
+router.get('/newbook', withAuth, (req, res) => {
+    const hbsData = {};
+    hbsData.loggedIn = req.session.user?true:false;
+    res.render('newbook', hbsData)
+})
+
 router.get('/bookclub', withAuth, (req, res) => {
     const hbsData = {};
     hbsData.loggedIn = req.session.user?true:false;
