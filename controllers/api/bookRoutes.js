@@ -36,6 +36,7 @@ router.post("/", (req, res) => {
     if (!foundBook) {
       return res.status(400).json({msg: 'no book by that name'})
     }
+    return res.json(foundBook);
   }).catch(err => {
       console.log(err);
       res.status(500).json({ msg: "an error occured", err });
