@@ -1,5 +1,10 @@
         <!-- get blogs to show up on here-->
+{{#if loggedIn}}
 <h2 style="font-size: 80px; padding: 20px;">Welcome, {{first_name}}!</h2>
+{{else}}
+<h2 style="font-size: 80px; padding: 20px;">Welcome to the Club!</h2>
+<h4 class="px-5">Please log in!</h4>
+{{/if}}
 <div class="container d-flex flex-wrap">
 {{#each blogs}}
     <div class="d-flex">

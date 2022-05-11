@@ -6,6 +6,7 @@ var autopopTitle = document.querySelector("#autopopTitle");
 var autopopAuth = document.querySelector("#autopopAuth");
 var reviewTitle = document.querySelector("#reviewTitle");
 var reviewComemnt = document.querySelector("#comment");
+var autopopulatecontainer = document.querySelector("#autopopulatecontainer");
 
 pageLoad();
 
@@ -60,6 +61,7 @@ bookSubmit.addEventListener("click", event => {
         }
     }).then(data => {
         console.log(data)
+        autopopulatecontainer.setAttribute('class', 'container')
         autopopTitle.textContent=data.title;
         autopopAuth.textContent=data.author;
         autopopTitle.setAttribute('value', data.id);
