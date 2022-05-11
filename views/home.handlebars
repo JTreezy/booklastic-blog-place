@@ -1,9 +1,9 @@
         <!-- get blogs to show up on here-->
 <h2 style="font-size: 80px; padding: 20px;">Home</h2>
 <div class="container d-flex">
-    <div>
+{{#each blogs}}
+    <div class="d-flex">
         <div class="p-1">
-            {{#each blogs}}
             <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
                 <div class="card-header">{{title}}</div>
                 <div class="card-body">
@@ -17,18 +17,20 @@
                     <ul class="d-flex p-0" style="list-style-type:none;">
                         <li style="padding-top:5px; padding-right: 5px;">
                             <button type="button" class="btn btn-link" style="padding:10px;"id="deletebtn">
-                                <img src="/css/trash-can.png" alt="trashcan" style="max-width: 20px;">
+                                <img src="/images/trash-can.png" alt="trashcan" style="max-width: 20px;">
                             </button>
                         </li>
                         <li style="padding-top:5px; padding-right: 5px;">
                             <button type="button" class="btn btn-link" id="editbtn" style="padding:10px;">
-                                <img src="/css/pencil.png" alt="pencil" style="max-width: 20px;">
+                                <img src="/images/pencil.png" alt="pencil" style="max-width: 20px;">
                             </button>
                         </li>
                     </ul>
                     <h6 class="d-flex align-items-center">{{user.first_name}}</h6>
                 </div>
             </div>
-            {{/each}}
         </div>
-    </div>
+</div>
+</div>
+{{/each}}
+</div>
