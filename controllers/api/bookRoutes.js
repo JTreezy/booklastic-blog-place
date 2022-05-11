@@ -16,12 +16,27 @@ router.get("/", (req, res) => {
     });
 });
 //find one
-router.get("/:id", (req, res) => {
-  Book.findByPk(req.params.id,{include: [Blog, Genre]})
-    .then(dbBook => {
-      res.json(dbBook);
-    })
-    .catch(err => {
+// router.get("/:id", (req, res) => {
+//   Book.findByPk(req.params.id,{include: [Blog, Genre]})
+//     .then(dbBook => {
+//       res.json(dbBook);
+//     })
+//     .catch(err => {
+//       console.log(err);
+//       res.status(500).json({ msg: "an error occured", err });
+//     });
+// });
+
+router.post("/", (req, res) => {
+  Book.findOne({
+    where:{
+      title:req.body.title
+    }
+  }).then(foundBook=> {
+    if (!foundBook) {
+      return res.status(400).json({msg: 'no book by that name'})
+    }
+  }).catch(err => {
       console.log(err);
       res.status(500).json({ msg: "an error occured", err });
     });

@@ -1,4 +1,3 @@
-<body style="background: #E7E2D3;">
     <!-- also used in the my library and most likely the bookclub -->
     <h2 style="font-size: 60px; padding: 20px;"> How Was The Read?</h2>
     <!-- search bar -->
@@ -7,8 +6,11 @@
           <div class="col-md-10">
             <div class="search d-flex">
               <i class="fa fa-search"></i>
-              <input type="text" class="form-control mx-1" placeholder="Type Book Title Here!">
-              <button class="btn btn-primary">Find My Book</button>
+              <input type="text" class="form-control mx-1" placeholder="Type Book Title Here!" id="bookInput" list="bookList">
+              <datalist id="bookList">
+                  {{!-- <option value="new">Add New Book</option> --}}
+              </datalist>
+              <button class="btn btn-primary" id="bookSubmit">Submit</button>
             </div>
           </div>
         </div>
@@ -124,7 +126,5 @@
     <div class="d-flex justify-content-end m-5">
         <button type="button" class="btn btn-link" style="margin-right: 120px;" id="airplaneButton"><img src="../assets/send.png" alt="paper air plane" style="width: 40px;"></button>
     </div>
-</body>
+    <script src="js/review.js"></script>
 
-
-<script src="js/review.js"></script>
