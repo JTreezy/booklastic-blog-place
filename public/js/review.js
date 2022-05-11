@@ -18,8 +18,6 @@ function pageLoad() {
             return res.json()
         }
     }).then((data) => { 
-            // console.log(data);
-            // console.log(data[0])
             for (i=0; i < data.length; i++){
                 var book = data[i]
                 const newOptionEl = document.createElement('option');
@@ -33,10 +31,9 @@ function pageLoad() {
 
 bookSubmit.addEventListener("click", event => {
     event.preventDefault();
-    console.log('clicked');
     var bookSelection = {
         title:bookInput.value};
-    console.log(bookSelection);
+    // console.log(bookSelection);
     fetch("/api/books",{
         method:"POST",
         body:JSON.stringify(bookSelection),
@@ -45,14 +42,16 @@ bookSubmit.addEventListener("click", event => {
         }
     }).then(res=>{
         if(res.ok){ 
-            console.log(res)
+            console.log(JSON.stringify(res))
             // autopopTitle.textContent=bookInput.value;
         } else {
             alert("We don't have that book in our database yet! Please provide some more info.")
-            // OPEN MODAL
+            // OPEN NEW BOOK ENTRY MODAL
         }
     })
 })
+
+// SAVE NEW BOOK TO DB 
 
 
 airplaneButton.addEventListener("click",e=>{

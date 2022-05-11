@@ -16,16 +16,16 @@ router.get("/", (req, res) => {
     });
 });
 //find one
-// router.get("/:id", (req, res) => {
-//   Book.findByPk(req.params.id,{include: [Blog, Genre]})
-//     .then(dbBook => {
-//       res.json(dbBook);
-//     })
-//     .catch(err => {
-//       console.log(err);
-//       res.status(500).json({ msg: "an error occured", err });
-//     });
-// });
+router.get("/:id", (req, res) => {
+  Book.findByPk(req.params.id,{include: [Blog, Genre]})
+    .then(dbBook => {
+      res.json(dbBook);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ msg: "an error occured", err });
+    });
+});
 
 router.post("/", (req, res) => {
   Book.findOne({
@@ -37,7 +37,15 @@ router.post("/", (req, res) => {
       return res.status(400).json({msg: 'no book by that name'})
     }
     const hbsBook = foundBook.get({plain:true})
+    console.log(foundBook)
+    console.log('==============')
     console.log(hbsBook)
+    
+    // req.session.id = hbsBook.id;
+    // req.session.title = hbsBook.title;
+    // req.session.author = hbsBook.author;
+    // req.session.genre = hbsBook.genre;
+
     // TODO:FIGURE THIS OUT
     return res.render('review', {hbsBook});
   }).catch(err => {
