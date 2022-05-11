@@ -1,33 +1,65 @@
-// on page load request all book titles and add to drop down list. 
+var dataList = document.querySelector("#bookList");
+var bookSubmit = document.querySelector("#bookSubmit");
+const airplaneButton = document.querySelector("#airplaneButton");
+var bookInput = document.querySelector("#bookInput");
+var autopopTitle = document.querySelector("#autopopTitle");
+var autopopAuth = document.querySelector("#autopopAuth");
+var reviewTitle = document.querySelector("#reviewTitle");
+var reviewComemnt = document.querySelector("#comment");
 
 pageLoad();
 
 function pageLoad() {
     fetch("/api/books", {
-        method: "GET"
+        method: "GET",
+        body: JSON.stringify()
     }).then (res => {
         if (res.ok) {
-            // add books to drop down for book titles
-        } else {
-            // ???
+            return res.json()
         }
-    })
+    }).then((data) => { 
+            for (i=0; i < data.length; i++){
+                var book = data[i]
+                const newOptionEl = document.createElement('option');
+                newOptionEl.setAttribute('value', book.title);
+                newOptionEl.setAttribute('id', i);
+                bookList.append(newOptionEl)
+            }
+            // console.log(bookList)
+        })
 }
 
-// autocomplete to type in pre-populate book titles PLUS option to add new
-    // user types in a book title in search
-    // IF chooses to adds new, unhide option to add author and genre
+bookSubmit.addEventListener("click", event => {
+    event.preventDefault();
+    var bookSelection = {
+        title:bookInput.value};
+    // console.log(bookSelection);
+    fetch("/api/books",{
+        method:"POST",
+        body:JSON.stringify(bookSelection),
+        headers:{
+            "Content-Type":"application/json"
+        }
+    }).then(res=>{
+        if(res.ok){ 
+            console.log(JSON.stringify(res))
+            // autopopTitle.textContent=bookInput.value;
+        } else {
+            alert("We don't have that book in our database yet! Please provide some more info.")
+            // OPEN NEW BOOK ENTRY MODAL
+        }
+    })
+})
 
-// populate into review the title and author
-    // 
+// SAVE NEW BOOK TO DB 
 
-const airplaneButton = document.querySelector("#airplaneButton")
+
 airplaneButton.addEventListener("click",e=>{
     console.log(e)
     e.preventDefault()
-    const title = document.querySelector("#userReviewTitle").value
+    let title = reviewTitle.value
     title = title.trim(); 
-    const review = document.querySelector("#comment").value;
+    let review = comment.value;
     review = review.trim();
     if (!title || !review) {
         alert('Please enter both a title and a review!')
@@ -46,7 +78,7 @@ airplaneButton.addEventListener("click",e=>{
         }
     }).then(res=>{
         if(res.ok){
-           location.href('/mylibrary')
+            console.log('YAY')
         } else {
             alert("error; please try again")
         }

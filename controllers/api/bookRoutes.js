@@ -27,6 +27,33 @@ router.get("/:id", (req, res) => {
     });
 });
 
+router.post("/", (req, res) => {
+  Book.findOne({
+    where:{
+      title:req.body.title
+    }
+  }).then(foundBook=> {
+    if (!foundBook) {
+      return res.status(400).json({msg: 'no book by that name'})
+    }
+    const hbsBook = foundBook.get({plain:true})
+    console.log(foundBook)
+    console.log('==============')
+    console.log(hbsBook)
+    
+    // req.session.id = hbsBook.id;
+    // req.session.title = hbsBook.title;
+    // req.session.author = hbsBook.author;
+    // req.session.genre = hbsBook.genre;
+
+    // TODO:FIGURE THIS OUT
+    return res.render('review', {hbsBook});
+  }).catch(err => {
+      console.log(err);
+      res.status(500).json({ msg: "an error occured", err });
+    });
+});
+
 //create book
 router.post("/", (req, res) => {
   if(!req.session.user){

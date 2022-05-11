@@ -7,14 +7,14 @@ router.get("/",(req,res)=>{
     Blog.findAll({
         include: [{model:User}, {model:Book, include: [{model:Genre}]}]
     }).then(blogs=>{
-        // console.log(blogs)
+        console.log(blogs)
         const hbsBlogs = blogs.map(blog=>blog.get({plain:true})) 
         console.log("==========")
         console.log(hbsBlogs)
         console.log('===========')
         console.log('success')
         const loggedIn = req.session.user?true:false
-        res.render("home",{blogs:hbsBlogs,loggedIn,username:req.session.user?.username}) 
+        res.render("home",{blogs:hbsBlogs,loggedIn,first_name:req.session.user?.first_name}) 
     })
 })
 
@@ -39,10 +39,17 @@ router.get('/mylibrary',withAuth, (req, res) => {
 })
 
 router.get('/review', withAuth, (req, res) => {
+    const hbsData = {};
+    hbsData.loggedIn = req.session.user?true:false;
     // pass off "logged in"
-    res.render('review')
+    res.render('review', hbsData)
 })
 
+router.get('/bookclub', withAuth, (req, res) => {
+    const hbsData = {};
+    hbsData.loggedIn = req.session.user?true:false;
+    res.render('bookclub', hbsData)
+})
 
 // to get the images to run on the page
 
