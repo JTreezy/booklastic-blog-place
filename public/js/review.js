@@ -46,6 +46,17 @@ bookSubmit.addEventListener("click", event => {
         } else {
             // alert("We don't have that book in our database yet! Please provide some more info.")
             location.href='/newbook'
+
+            // if(res.ok){ 
+            //     return res.json()
+            // } else if (res.status XXX) {
+            //     location.href='/newbook'
+            // } else {
+            //     throw console.error();
+            // }
+
+
+
         }
     }).then(data => {
         console.log(data)
@@ -66,7 +77,7 @@ airplaneButton.addEventListener("click",e=>{
     let review = comment.value;
     review = review.trim();
     if (!title || !review || !autopopTitle.value) {
-        alert('Please select a book then enter both a title and a review!')
+        alert('Please select a book then enter both a title and a review for your post!')
         return;
     }
     const blogObj = {
