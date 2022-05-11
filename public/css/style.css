@@ -45,3 +45,13 @@ h3 {
   color: #ffeba7 !important;
   box-shadow: 0 8px 24px 0 rgba(16,39,112,.2) !important;
 }
+
+#chatContainer {
+  height: 75vh;
+  border: 1px solid #e095fd;
+  border-radius: 10px;
+  margin: 1rem 1rem;
+  padding: 0.5rem;
+  overflow: scroll;
+}
+

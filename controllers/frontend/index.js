@@ -54,6 +54,7 @@ router.get('/newbook', withAuth, (req, res) => {
 router.get('/bookclub', withAuth, (req, res) => {
     const hbsData = {};
     hbsData.loggedIn = req.session.user?true:false;
+    console.log(req.session)
     res.render('bookclub', hbsData)
 })
 
