@@ -18,13 +18,12 @@
               class="rounded-circle d-flex align-self-start me-3 shadow-1-strong p-1" width="60">
             <div class="card">
               <div class="card-header d-flex justify-content-between p-3">
-                <p class="fw-bold mb-0">Brad Pitt</p>
+                <p class="fw-bold mb-0">{{first_name}}</p>
                 <p class="text-muted small mb-0"><i class="far fa-clock"></i> 12 mins ago</p>
               </div>
               <div class="card-body">
-                <p class="mb-0">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                  labore et dolore magna aliqua.
+                <p class="mb-0" id="messages2">
+                  {{!-- message comes here --}}
                 </p>
               </div>
             </div>
@@ -80,6 +79,10 @@
               <textarea class="form-control" id="textAreaExample2" rows="4"></textarea>
               
             </div>
+            {{!-- <div class="form-outline">
+              <textarea class="form-control" id="textAreaExample2" rows="4"></textarea>
+              <label class="form-label" for="textAreaExample2">Message</label>
+            </div> --}}
           </li>
           <div class="d-flex justify-content-end">
             <button type="button" class="btn btn-info btn-rounded float-end">Send</button>
@@ -93,6 +96,13 @@
   </div>
 
 
+{{!-- <ul id="messages"></ul>
+    <form id="form" action="">
+      <input id="input" autocomplete="off" /><button>Send</button>
+    </form> --}}
+
+
+
 {{!-- JT & Andrew --}}
 {{!-- <script src="../node_modules/socket.io/client-dist/socket.io.js"></script> --}}
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
@@ -102,6 +112,7 @@
   var socket = io();
 
   var messages = document.getElementById('messages');
+  var messages = document.getElementById('messages2');
   var form = document.getElementById('form');
   var input = document.getElementById('input');
 
@@ -114,9 +125,10 @@
   });
 
   socket.on('chat message', function(msg) {
-    var item = document.createElement('li');
+    var item = document.createElement('p');
     item.textContent = msg;
     messages.appendChild(item);
+    messages2.appendChild(item);
     window.scrollTo(0, document.body.scrollHeight);
   });
 </script>
