@@ -34,7 +34,7 @@ bookSubmit.addEventListener("click", event => {
     var bookSelection = {
         title:bookInput.value};
     // console.log(bookSelection);
-    fetch("/api/books",{
+    fetch("/api/books/findbytitle",{
         method:"POST",
         body:JSON.stringify(bookSelection),
         headers:{
