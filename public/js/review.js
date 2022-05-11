@@ -21,8 +21,9 @@ function pageLoad() {
 // populate into review the title and author
     // 
 
-
-document.querySelector("#airplaneButton").addEventListener("click",e=>{
+const airplaneButton = document.querySelector("#airplaneButton")
+airplaneButton.addEventListener("click",e=>{
+    console.log(e)
     e.preventDefault()
     const title = document.querySelector("#userReviewTitle").value
     title = title.trim(); 
