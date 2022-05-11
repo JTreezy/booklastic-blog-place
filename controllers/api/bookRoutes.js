@@ -45,12 +45,10 @@ router.post("/findbytitle", (req, res) => {
     // req.session.author = hbsBook.author;
     // req.session.genre = hbsBook.genre;
 
-    // TODO:FIGURE THIS OUT
     return res.json(hbsBook);
   }).catch(err => {
       console.log(err);
       // res.status(500).json({ msg: "an error occured", err });
-      res.redirect('newbook')
     });
 });
 

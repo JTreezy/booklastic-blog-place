@@ -41,6 +41,7 @@ router.get('/mylibrary',withAuth, (req, res) => {
 router.get('/review', withAuth, (req, res) => {
     const hbsData = {};
     hbsData.loggedIn = req.session.user?true:false;
+    hbsData.first_name = 
     // pass off "logged in"
     res.render('review', hbsData)
 })
