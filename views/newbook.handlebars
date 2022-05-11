@@ -1,5 +1,5 @@
     <!-- also used in the my library and most likely the bookclub -->
-    <h2 style="font-size: 60px; padding: 20px;"> Add A New Book</h2>
+    <h2 style="font-size: 60px; padding: 20px;"> We Don't Know That Book - Please Provide Some Info!</h2>
     <!-- this is where the genre goes -->
  <div class="container">
         <h3 class="d-flex justify-content-center p-1">📖 What Genre Does Your Book Fit 📖</h3>
@@ -102,19 +102,29 @@
             </div>
 </div>
 {{!-- the review  --}}
-<div class="container">
-    <h3 class="d-flex justify-content-center p-5">Your Review</h3>
+    <div class="container">
+        <h3 class="d-flex justify-content-center p-5">Your Review</h3>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1">Review Title</span>
             </div>
-                <input type="text" class="form-control" aria-label="Title" aria-describedby="basic-addon1" id="newReviewTitle">
-        </div>
-    <div class="form-group">
-        <label for="comment">Review 📝</label>
-        <textarea class="form-control" rows="5" id="newReviewComment"></textarea>
+                <input type="text" class="form-control" aria-label="Title" aria-describedby="basic-addon1" id="newreviewTitle">
     </div>
-</div>
+        <!-- this is where the authore and title autopopulate-->
+    <div class="container">
+        <ul class="m-3 row">
+            <li class="list-group-item disabled mb-2 col-8" id="newautopopTitle">{{hbsBook.title}}</li>
+            <li class="list-group-item disabled mb-2 col" id="newautopopAuth">{{hbsBook.author}}</li>
+        </ul>
+    </div>
+    {{!-- review comment --}}
+    </div>
+    <div class="container">
+        <div class="form-group">
+            <label for="comment">Review 📝</label>
+            <textarea class="form-control" rows="5" id="newcomment"></textarea>
+        </div>
+    </div>
 <div class="d-flex justify-content-end m-5">
     <button type="button" class="btn btn-link" style="margin-right: 120px;" id="airplaneButton"><img src="/images/send.png" alt="paper air plane" style="width: 40px;"></button>
 </div>

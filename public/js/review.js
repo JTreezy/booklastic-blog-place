@@ -44,13 +44,14 @@ bookSubmit.addEventListener("click", event => {
         if(res.ok){ 
             return res.json()
         } else {
-            alert("We don't have that book in our database yet! Please provide some more info.")
-            // location.href('/newbook')
+            // alert("We don't have that book in our database yet! Please provide some more info.")
+            location.href='/newbook'
         }
     }).then(data => {
         console.log(data)
         autopopTitle.textContent=data.title;
         autopopAuth.textContent=data.author;
+        autopopTitle.setAttribute('value', data.id);
     })
 })
 
@@ -64,14 +65,14 @@ airplaneButton.addEventListener("click",e=>{
     title = title.trim(); 
     let review = comment.value;
     review = review.trim();
-    if (!title || !review) {
-        alert('Please enter both a title and a review!')
+    if (!title || !review || !autopopTitle.value) {
+        alert('Please select a book then enter both a title and a review!')
         return;
     }
     const blogObj = {
         title:title,
         review:review,
-        // TODO: bookId: 
+        bookId:autopopTitle.value
     }
     fetch("/api/blogs",{
         method:"POST",
@@ -82,7 +83,7 @@ airplaneButton.addEventListener("click",e=>{
     }).then(res=>{
         if(res.ok){
             console.log('YAY')
-            location.href('/mylibrary')
+            location.href='/mylibrary'
         } else {
             alert("error; please try again")
         }
