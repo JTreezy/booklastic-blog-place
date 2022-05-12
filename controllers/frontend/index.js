@@ -12,7 +12,7 @@ router.get("/",(req,res)=>{
         console.log("==========")
         console.log(hbsBlogs)
         console.log('===========')
-        console.log('success')
+        console.log(hbsBlogs[0].book.genres[0].name)
         const loggedIn = req.session.user?true:false
         hbsBlogs.first_name = req.session.user?.first_name;
         res.render("home",{blogs:hbsBlogs,loggedIn,first_name:req.session.user?.first_name}) 

@@ -85,103 +85,82 @@ const books = [
     {
         title: "Dare to Lead",
         author: "Brene Brown",
-        genreId: 1
     },
     {
         title: "Before We Were Yours",
         author: "Lisa Wingate",
-        genreId: 4
     },
     {
         title: "White Fragility: Why It's So Hard for White People to Talk About Racism",
         author: "Robin DiAngelo",
-        genreId: 7
-
     },
     {
         title: "Educated",
         author: "Tara Westover",
-        genreId: 1
     },
     {
         title: "The Nightingale",
         author: "Kristin Hannah",
-        genreId: 2
     },
     {
         title: "The Giver of Stars",
         author: "Jojo Moyes",
-        genreId: 1
     },
     {
         title: "The Silent Patient",
         author: "Alex Michaelides",
-        genreId: 3
     },
     {
         title: "Talking to Strangers",
         author: "Malcolm Gladwell",
-        genreId: 5
     },
     {
         title: "Conviction",
         author: "Denise Mina",
-        genreId: 5
     },
     {
         title: "The Secrets We Kept",
         author: "Lara Prescott",
-        genreId: 6
     },
     {
         title: "Bad Blood",
         author: "John Carryrou",
-        genreId: 8
     },
     {
         title: "The Tattooist of Auschwitz",
         author: "Heather Morris",
-        genreId: 6
     },
     {
         title: "Everyday Millionaires",
         author: "Chris Hogan",
-        genreId: 9
     },
     {
         title: "How Google Works",
         author: "Eric Schmidt",
-        genreId: 10
     },
     {
         title: "The Little Book of Common Sense Investing",
         author: "John C Bogle",
-        genreId: 2
     },
     {
         title: "Born a Crime",
         author: "Trevor Noah",
-        genreId: 12
     },
     {
         title: "I Will Teach You To Be Rich",
         author: "Ramit Sethi",
-        genreId: 2
     },
     {
         title: "Sapiens",
         author: "Yuval Noah Harari",
-        genreId: 13
     },
     {
         title: "How to Win Friends and Influence People",
         author: "Dale Carnegie",
-        genreId: 7
     },
     {
         title: "Greenlights",
         author: "Matthew McConaughey",
-        genreId: 15
     }
 ]
 
@@ -241,10 +220,21 @@ const feedMe = async ()=>{
         await User.bulkCreate(users,{
             individualHooks:true
         });
-        await Genre.bulkCreate(genres);
+        const dBgenres = await Genre.bulkCreate(genres);
         await Book.bulkCreate(books);
         await Blog.bulkCreate(blogs);
         await Comment.bulkCreate(comments);
+        await dBgenres[0].addBooks([1]);
+        await dBgenres[1].addBooks([2, 3]);
+        await dBgenres[2].addBooks([4, 5, 6]);
+        await dBgenres[3].addBooks([7, 8, 1]);
+        await dBgenres[4].addBooks([9, 10]);
+        await dBgenres[5].addBooks([11, 13]);
+        await dBgenres[6].addBooks([12, 14, 4]);
+        await dBgenres[7].addBooks([15, 16]);
+        await dBgenres[8].addBooks([17, 18]);
+        await dBgenres[9].addBooks([19, 12]);
+        await dBgenres[10].addBooks([20, 16]);
         process.exit(0);
     } catch(err){
         console.log(err)

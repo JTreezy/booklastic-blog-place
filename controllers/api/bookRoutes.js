@@ -60,9 +60,9 @@ router.post("/", (req, res) => {
   Book.create({
     title:req.body.title,
     author:req.body.author,
-    genreId:req.body.genreId
   })
     .then(newBook => {
+      newBook.addGenres(req.body.genreIds)
       res.json(newBook);
     })
     .catch(err => {

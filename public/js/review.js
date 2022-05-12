@@ -6,6 +6,7 @@ var autopopTitle = document.querySelector("#autopopTitle");
 var autopopAuth = document.querySelector("#autopopAuth");
 var reviewTitle = document.querySelector("#reviewTitle");
 var reviewComemnt = document.querySelector("#comment");
+var autopopulatecontainer = document.querySelector("#autopopulatecontainer");
 
 pageLoad();
 
@@ -60,14 +61,12 @@ bookSubmit.addEventListener("click", event => {
         }
     }).then(data => {
         console.log(data)
+        autopopulatecontainer.setAttribute('class', 'container')
         autopopTitle.textContent=data.title;
         autopopAuth.textContent=data.author;
         autopopTitle.setAttribute('value', data.id);
     })
 })
-
-// SAVE NEW BOOK TO DB 
-
 
 airplaneButton.addEventListener("click",e=>{
     console.log(e)
@@ -77,7 +76,7 @@ airplaneButton.addEventListener("click",e=>{
     let review = comment.value;
     review = review.trim();
     if (!title || !review || !autopopTitle.value) {
-        alert('Please select a book then enter both a title and a review for your post!')
+        alert('Please select a book by clicking the "Submit" button before writing your review! Review must include both a title and a review body.')
         return;
     }
     const blogObj = {
