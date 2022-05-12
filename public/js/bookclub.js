@@ -9,40 +9,20 @@ var chatMessage = document.getElementById('chat-message');
 var senderID;
 var senderName;
 
-fetch('/api/users/sessionID', {
-    method: 'GET',
-    headers: {
-    'Content-Type': 'application/json',
-  },
-})
-.then(response => response.json())
-.then(data => {
-  console.log('Success:', data);
-  senderID = data
-  senderName = data.userName
-})
-.catch((error) => {
-  console.error('Error:', error);
-});
-
+var currentUser = document.getElementById('name').getAttribute('data-value');
+console.log(currentUser)
 
 sendit.addEventListener('click', function(e) {
   e.preventDefault();
   if (sentMessage.value) {
-    socket.emit('chat message', sentMessage.value);
+    socket.emit('chat message', {sentMessage:sentMessage.value, userName:currentUser, time: moment().format('HH:mm:ss') });
     sentMessage.value = '';
   }
 });
 
+//socket id, giving them a value of the session.first_name
 socket.on('chat message', function(msg) {
   console.log(msg)
-  if(senderID.sessionID === msg.sessionID){
-    console.log('same sender')
-    
-  } else {
-    console.log('different sender')
-    //if different sender, change name 
-  }
   myMessage(msg.msg)
   window.scrollTo(0, document.body.scrollHeight);
 });
@@ -59,11 +39,13 @@ function myMessage(msg) {
   
   const firstName = document.createElement('p')
   firstName.setAttribute('class', 'fw-bold mb-0')
-// Name of the session to be added to the cardheader
-  firstName.textContent = senderName
-  //firstName.innerHTML = `${msg.}`//
-  //{{first_name}}//
+  firstName.textContent = msg.userName
   cardHeader.appendChild(firstName)
+
+  const time = document.createElement('p')
+  time.setAttribute('class', 'fw-bold mb-0')
+  time.textContent = msg.time
+  cardHeader.appendChild(time)
 
   const chatBody = document.createElement('div')
   chatBody.setAttribute('class', 'card-body')
@@ -71,7 +53,7 @@ function myMessage(msg) {
 
   const chatBodyText = document.createElement('p')
   chatBodyText.setAttribute('class', 'mb-0')
-  chatBodyText.textContent = msg
+  chatBodyText.textContent = msg.sentMessage
   chatBody.appendChild(chatBodyText)
 
   const imageContainer = document.createElement('div')
