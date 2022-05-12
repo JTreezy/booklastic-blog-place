@@ -8,16 +8,6 @@ router.get("/",(req,res)=>{
         include: [{model:User}, {model:Book, include: [{model:Genre}]}]
     }).then(blogs=>{
         const hbsBlogs = blogs.map(blog=>blog.get({plain:true})) 
-        console.log("==========")
-        console.log(hbsBlogs)
-        console.log('===========')
-        console.log(hbsBlogs[0])
-        console.log('===========')
-        console.log(hbsBlogs[0].book)
-        console.log('===========')
-        console.log(hbsBlogs[0].book.genres)
-        console.log('===========')
-        console.log(hbsBlogs[0].book.genres[0].name)
         const loggedIn = req.session.user?true:false
         hbsBlogs.first_name = req.session.user?.first_name;
         res.render("home",{blogs:hbsBlogs,loggedIn,first_name:req.session.user?.first_name}) 
@@ -41,9 +31,6 @@ router.get('/mylibrary',withAuth, (req, res) => {
         const hbsData = userData.get({plain:true})
         hbsData.loggedIn = req.session.user?true:false
         hbsData.first_name = req.session.user?.first_name;
-        // console.log(hbsData)
-        // console.log('===========')
-        // TODO: PARSE FOR NESTED GENRE-NAME IF EXIST, USERNAME IF NEEDED??? ON THEIR OWN PAGE, SO USERNAME NOT NECESSARY
         res.render("mylibrary", hbsData)
     }).catch(err => {
         console.log(err);
@@ -98,14 +85,9 @@ router.get('/reviewcomments/:id', withAuth, (req,res) => {
     })
     .then(thisBlog => {
         const hbsBlog = thisBlog.get({plain:true})
-        console.log(hbsBlog)
-        console.log('===================')
-        console.log(hbsBlog.comments)
-        // console.log(hbsBlog.comments[0].user.first_name)
-        // console.log(hbsBlog.comments[0].body)
         hbsBlog.loggedIn = req.session.user?true:false;
         hbsBlog.first_name = req.session.user?.first_name;
-        res.render('comment', {hbsBlog})
+        res.render('comment', hbsBlog)
     })
 })
 
