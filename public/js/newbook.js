@@ -7,14 +7,26 @@ var newcomment = document.querySelector("#newcomment");
 
 var newairplaneButton = document.querySelector("#newairplaneButton");
 
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+
 newairplaneButton.addEventListener("click", event => {
     event.preventDefault();
     let bookTitle = newbooktitle.value.trim();
     let bookAuthor = newauthortitle.value.trim();
-    let bookGenre = genreselection.value;
+    // NEED TO GRAB CHECKED BOXES AND THEN THE VALUES OF THEM
+    let checkedGenres = [];
+    function check() {
+        if ($(':checkbox').checked) {
+        checkedGenres.push($(this).value);
+        }
+        console.log(checkedGenres)
+    }
+    check();
     let reviewTitle = newreviewTitle.value.trim();
     let reviewComment = newcomment.value.trim();
-
+console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
     // check for data completion
     if (!bookTitle && !bookAuthor && !reviewTitle && !reviewComment) {
         alert('Oops! Please complete this page with a book title, book author, review title, and review!')
@@ -31,8 +43,7 @@ newairplaneButton.addEventListener("click", event => {
     const bookObj = {
         title: bookTitle,
         author: bookAuthor,
-        // TODO: Singular v multiple genres
-        genreId: bookGenre
+        genreIds: checkedGenres
     }
     fetch("/api/books", {
         method: "POST",

@@ -8,6 +8,10 @@ var reviewTitle = document.querySelector("#reviewTitle");
 var reviewComemnt = document.querySelector("#comment");
 var autopopulatecontainer = document.querySelector("#autopopulatecontainer");
 
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+
 pageLoad();
 
 function pageLoad() {

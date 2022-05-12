@@ -1,5 +1,6 @@
-// var deletebtn = document.querySelector(".deletebtn");
-// var editbtn = document.querySelector("editbtn");
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
 
 $('.deletebtn').on("click", function (event) {
     event.preventDefault();
@@ -28,14 +29,4 @@ $('.editbtn').on("click", function (event) {
     var blogId = selectedItem[0].value
     console.log('edit clicked for blog ' + blogId)
     location.href=`/blogs/${blogId}`
-    // fetch((`/api/blogs/${blogId}`),{
-    //     method:"PUT",
-    // }).then(res=>{
-    //     if(res.ok){
-    //         console.log("blog deleted")
-    //         location.href="/mylibrary"
-    //     } else {
-    //         alert("please try again")
-    //     }
-    // })
 })

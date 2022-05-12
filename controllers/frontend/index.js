@@ -41,8 +41,8 @@ router.get('/mylibrary',withAuth, (req, res) => {
         const hbsData = userData.get({plain:true})
         hbsData.loggedIn = req.session.user?true:false
         hbsData.first_name = req.session.user?.first_name;
-        console.log(hbsData)
-        console.log('===========')
+        // console.log(hbsData)
+        // console.log('===========')
         // TODO: PARSE FOR NESTED GENRE-NAME IF EXIST, USERNAME IF NEEDED??? ON THEIR OWN PAGE, SO USERNAME NOT NECESSARY
         res.render("mylibrary", hbsData)
     }).catch(err => {

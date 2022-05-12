@@ -20,14 +20,15 @@
                 <div class="card-footer bg-transparent d-flex justify-content-between p-0">
                     <ul class="d-flex p-0" style="list-style-type:none;">
                         <li style="padding-top:5px; padding-right: 5px;">
-                            <button type="button" class="btn btn-link deletebtn" style="padding:10px;" value="{{id}}">
+                            <button type="button" class="btn btn-link deletebtn" style="padding:10px;" value="{{id}}" data-toggle="tooltip" data-placement="top" title="Delete this review">
                                 <img src="/images/trash-can.png" alt="trashcan" style="max-width: 20px;">
                             </button>
                         </li>
                         <li style="padding-top:5px; padding-right: 5px;">
-                            <button type="button" class="btn btn-link editbtn" style="padding:10px;" value="{{id}}">
+                            <button type="button" class="btn btn-link editbtn" style="padding:10px;" value="{{id}}" data-toggle="tooltip" data-placement="top" title="Edit/update this review">
                                 <img src="/images/pencil.png" alt="pencil" style="max-width: 20px;">
                             </button>
+                            {{!-- <span class="tooltiptext">Edit/Update</span> --}}
                         </li>
                     </ul>
                     <h6 class="d-flex align-items-center">{{first_name}}</h6>
