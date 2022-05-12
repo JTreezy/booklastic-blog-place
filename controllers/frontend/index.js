@@ -77,6 +77,10 @@ router.get('/blogs/:id', withAuth, (req, res) => {
         include: [User, Comment, {model: Book, include: [Genre]}]
       })
         .then(thisBlog => {
+        if (thisBlog.userId != req.session.user?.id) {
+            alert(`Oops! Looks like this isn't your post to edit.`)
+            return res.redirect("/mylibrary") 
+        }
           const hbsBlog = thisBlog.get({plain:true})
           hbsBlog.loggedIn = req.session.user?true:false;
           hbsBlog.first_name = req.session.user?.first_name;
@@ -84,8 +88,12 @@ router.get('/blogs/:id', withAuth, (req, res) => {
         })
         .catch(err => {
           console.log(err);
-          res.status(500).json({ msg: "an error occured", err });
+          res.status(500).redirect("/mylibrary");
         });
+})
+
+router.get('*', (req, res) => {
+    res.redirect("/mylibrary")
 })
 
 // to get the images to run on the page
