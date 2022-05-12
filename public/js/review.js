@@ -73,14 +73,14 @@ bookSubmit.addEventListener("click", event => {
 })
 
 airplaneButton.addEventListener("click",e=>{
-    console.log(e)
     e.preventDefault()
     let title = reviewTitle.value
     title = title.trim(); 
     let review = comment.value;
     review = review.trim();
     if (!title || !review || !autopopTitle.value) {
-        alert('Please select a book by clicking the "Submit" button before writing your review! Review must include both a title and a review body.')
+        var myModal = new bootstrap.Modal(document.getElementById('reviewincomplete'))
+        myModal.show();
         return;
     }
     const blogObj = {
