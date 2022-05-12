@@ -49,17 +49,13 @@ bookSubmit.addEventListener("click", event => {
         if(res.ok){ 
             return res.json()
         } else {
-            // alert("We don't have that book in our database yet! Please provide some more info.")
-            location.href='/newbook'
-
-            // if(res.ok){ 
-            //     return res.json()
-            // } else if (res.status XXX) {
-            //     location.href='/newbook'
-            // } else {
-            //     throw console.error();
-            // }
-
+            var myModal = new bootstrap.Modal(document.getElementById('booknotinDB'))
+            myModal.show();
+            $('#booknotinDBclose').on("click", function (event){
+                event.preventDefault();
+                location.href='/newbook'
+            })
+// TODO: check other status, not catch all for this
 
 
         }
