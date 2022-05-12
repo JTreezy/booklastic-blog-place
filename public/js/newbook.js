@@ -15,18 +15,21 @@ newairplaneButton.addEventListener("click", event => {
     event.preventDefault();
     let bookTitle = newbooktitle.value.trim();
     let bookAuthor = newauthortitle.value.trim();
-    // NEED TO GRAB CHECKED BOXES AND THEN THE VALUES OF THEM
+    let numCheckbox = $(':checkbox');
     let checkedGenres = [];
-    function check() {
-        if ($(':checkbox').checked) {
-        checkedGenres.push($(this).value);
-        }
-        console.log(checkedGenres)
+    console.log(numCheckbox)
+    for (i=0; i < numCheckbox.length; i++ ) {
+        if (numCheckbox[i].checked) {
+            checkedGenres.push(numCheckbox[i].value);
+            }
     }
-    check();
+    console.log(checkedGenres)
+    const reformatcheckedGenres = checkedGenres.map(str => {
+        return Number(str);
+    })
+    console.log(reformatcheckedGenres)
     let reviewTitle = newreviewTitle.value.trim();
     let reviewComment = newcomment.value.trim();
-console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
     // check for data completion
     if (!bookTitle && !bookAuthor && !reviewTitle && !reviewComment) {
         var myModal = new bootstrap.Modal(document.getElementById('modalA'))
@@ -55,7 +58,7 @@ console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
     const bookObj = {
         title: bookTitle,
         author: bookAuthor,
-        genreIds: checkedGenres
+        genreIds: reformatcheckedGenres
     }
     fetch("/api/books", {
         method: "POST",
