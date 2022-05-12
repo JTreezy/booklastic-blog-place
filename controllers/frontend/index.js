@@ -7,16 +7,24 @@ router.get("/",(req,res)=>{
     Blog.findAll({
         include: [{model:User}, {model:Book, include: [{model:Genre}]}]
     }).then(blogs=>{
-        console.log(blogs)
         const hbsBlogs = blogs.map(blog=>blog.get({plain:true})) 
         console.log("==========")
         console.log(hbsBlogs)
+        console.log('===========')
+        console.log(hbsBlogs[0])
+        console.log('===========')
+        console.log(hbsBlogs[0].book)
+        console.log('===========')
+        console.log(hbsBlogs[0].book.genres)
         console.log('===========')
         console.log(hbsBlogs[0].book.genres[0].name)
         const loggedIn = req.session.user?true:false
         hbsBlogs.first_name = req.session.user?.first_name;
         res.render("home",{blogs:hbsBlogs,loggedIn,first_name:req.session.user?.first_name}) 
-    })
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json({ msg: "an error occured", err });
+    });
 })
 
 router.get("/login",(req,res)=>{
@@ -37,7 +45,10 @@ router.get('/mylibrary',withAuth, (req, res) => {
         console.log('===========')
         // TODO: PARSE FOR NESTED GENRE-NAME IF EXIST, USERNAME IF NEEDED??? ON THEIR OWN PAGE, SO USERNAME NOT NECESSARY
         res.render("mylibrary", hbsData)
-    })
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json({ msg: "an error occured", err });
+    });
 })
 
 router.get('/review', withAuth, (req, res) => {
@@ -59,6 +70,30 @@ router.get('/bookclub', withAuth, (req, res) => {
     passoffData.loggedIn = req.session.user?true:false;
     passoffData.first_name = req.session.user?.first_name;
     res.render('bookclub', passoffData)
+})
+
+router.get('/blogs/:id', withAuth, (req, res) => {
+    Blog.findByPk(req.params.id, {
+        include: [User, Comment, {model: Book, include: [Genre]}]
+      })
+        .then(thisBlog => {
+        if (thisBlog.userId != req.session.user?.id) {
+            alert(`Oops! Looks like this isn't your post to edit.`)
+            return res.redirect("/mylibrary") 
+        }
+          const hbsBlog = thisBlog.get({plain:true})
+          hbsBlog.loggedIn = req.session.user?true:false;
+          hbsBlog.first_name = req.session.user?.first_name;
+          res.render('update', hbsBlog)
+        })
+        .catch(err => {
+          console.log(err);
+          res.status(500).redirect("/mylibrary");
+        });
+})
+
+router.get('*', (req, res) => {
+    res.redirect("/mylibrary")
 })
 
 // to get the images to run on the page
