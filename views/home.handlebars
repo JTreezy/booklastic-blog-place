@@ -9,8 +9,12 @@
 {{#each blogs}}
     <div class="d-flex">
         <div class="p-1">
-            <div class="card text-dark bg-warning mb-3" style="width: 18rem;">
-                <div class="card-header">{{title}}</div>
+            <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
+                <div class="card-header">
+                    <div>{{title}}</div>
+                    <div>review by {{user.first_name}}</div>
+                    </div>
+                {{!-- <div class="card-header d-none" id="hiddenBlogId">{{id}}</div> --}}
                 <div class="card-body">
                     <ul style="text-decoration: underline !important; list-style-type: none !important; padding: 0 !important;">
                         <li><h5 class="card-title">{{book.title}}</h5></li>
@@ -24,17 +28,9 @@
                 <div class="card-footer bg-transparent d-flex justify-content-between p-0">
                     <ul class="d-flex p-0" style="list-style-type:none;">
                         <li style="padding-top:5px; padding-right: 5px;">
-                            <button type="button" class="btn btn-link" style="padding:10px;"id="deletebtn">
-                                <img src="/images/trash-can.png" alt="trashcan" style="max-width: 20px;">
-                            </button>
-                        </li>
-                        <li style="padding-top:5px; padding-right: 5px;">
-                            <button type="button" class="btn btn-link" id="editbtn" style="padding:10px;">
-                                <img src="/images/pencil.png" alt="pencil" style="max-width: 20px;">
-                            </button>
+                            <button type="button" class="btn btn-link commentbtn" style="padding:10px;" value="{{id}}">Leave a comment!</button>
                         </li>
                     </ul>
-                    <h6 class="d-flex align-items-center">{{user.first_name}}</h6>
                 </div>
             </div>
         </div>
