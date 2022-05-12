@@ -92,8 +92,25 @@ router.get('/blogs/:id', withAuth, (req, res) => {
         });
 })
 
-router.get('*', (req, res) => {
-    res.redirect("/mylibrary")
+router.get('/reviewcomments/:id', withAuth, (req,res) => {
+    Blog.findByPk(req.params.id, {
+        include: [User, {model: Comment, include: [User]}, {model: Book, include: [Genre]}]
+    })
+    .then(thisBlog => {
+        const hbsBlog = thisBlog.get({plain:true})
+        console.log(hbsBlog)
+        console.log('===================')
+        console.log(hbsBlog.comments)
+        console.log(hbsBlog.comments[0].user.first_name)
+        console.log(hbsBlog.comments[0].body)
+        hbsBlog.loggedIn = req.session.user?true:false;
+        hbsBlog.first_name = req.session.user?.first_name;
+        res.render('comment', {hbsBlog})
+    })
 })
+
+// router.get('*', (req, res) => {
+//     res.redirect("/mylibrary")
+// })
 
 module.exports = router;

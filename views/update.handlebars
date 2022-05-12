@@ -22,19 +22,16 @@
             <label for="comment">Review 📝</label>
             <textarea class="form-control" rows="5" id="reviewEl">{{review}}</textarea>
             <div class="d-flex justify-content-end my-4">
-                <button type="button" class="btn btn-link editbtn" id="updatebtn" style="padding:10px;" value="{{id}}"><img src="/images/update.png" alt="update icon" style="width:50px;"></button>
+                <button type="button" class="btn btn-link editbtn" id="updatebtn" style="padding:10px;" value="{{id}}" data-toggle="tooltip" data-placement="top" title="Update my review"><img src="/images/update.png" alt="update icon" style="width:50px;"></button>
             </div>
         </div>
     </div>
-{{!-- 
 
- <div class="modal fade" id="blogupdated" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="blogupdated" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-body">
-        <p>
-            Review updated!
-        </p>
+        <p>Review updated!</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="blogupdatedClose">Close</button>
@@ -42,10 +39,8 @@
     </div>
   </div>
 </div>
-
-
-
 </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="../js/update.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="../js/update.js"></script>
