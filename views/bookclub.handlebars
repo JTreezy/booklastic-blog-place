@@ -5,7 +5,7 @@
 
       <div class="px-5">
 
-        <ul class="list-unstyled">
+        <ul class="list-unstyled" id="chat-message">
 
           {{!-- message 1 begins --}}
           <li class="d-flex justify-content-between mb-4">
@@ -28,26 +28,26 @@
           {{!-- message 2 ends --}}
           {{!-- this is the users side --}}
           {{!-- message 2 begins --}}
-          <li class="d-flex justify-content-end mb-4">
+          {{!-- <li class="d-flex justify-content-end mb-4">
             <div>
               <div style="display: flex; justify-content: end;">
                <img src="/images/onebook.png" alt="avatar"
               class="rounded-circle d-flex align-self-start ms-3 shadow-1-strong p-1" width="60">
               </div>
-            <div class="card w-100">
-              <div class="card-header d-flex justify-content-between p-3" style="background: #99C3AA;">
-                <p class="fw-bold mb-0">Lara Croft</p>
-                <p class="text-muted small mb-0"><i class="far fa-clock"></i> 13 mins ago</p>
+              <div class="card w-100" id="chat-message">
+                <div class="card-header d-flex justify-content-between p-3" style="background: #99C3AA;">
+                  <p class="fw-bold mb-0">{{first_name}}</p>
+                  <p class="text-muted small mb-0"><i class="far fa-clock"></i> 13 mins ago</p>
+                </div>
+                <div class="card-body">
+                  <p class="mb-0">
+                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                    laudantium.
+                  </p>
+                </div>
               </div>
-              <div class="card-body">
-                <p class="mb-0">
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                  laudantium.
-                </p>
             </div>
-            </div>
-              </div>
-          </li>
+          </li> --}}
           {{!-- message 2 ends --}}
           {{!-- message 3 begins --}}
           <li class="d-flex justify-content-between mb-4">
@@ -72,9 +72,9 @@
           <li class="mb-3">
             <label class="form-label" for="textAreaExample2">Message</label>
             <ul id="messages"></ul>
-            <form id="form">
+            <form id="chatApp">
               <div class="form-outline">
-                <input class="form-control" id="input" rows="4" />
+                <input class="form-control" id="sentMessage" rows="4" />
               </div>
           </li>
           <div class="d-flex justify-content-end">
@@ -99,23 +99,71 @@
   var socket = io();
 
   var messages = document.getElementById('messages');
-  var form = document.getElementById('form');
-  console.log(form)
-  var input = document.getElementById('input');
+  var chatApp = document.getElementById('chatApp');
+  var sentMessage = document.getElementById('sentMessage');
   var sendit = document.getElementById('sendit');
+  var chatMessage = document.getElementById('chat-message');
 
   sendit.addEventListener('click', function(e) {
     e.preventDefault();
-    if (input.value) {
-      socket.emit('chat message', input.value);
-      input.value = '';
+    if (sentMessage.value) {
+      socket.emit('chat message', sentMessage.value);
+      sentMessage.value = '';
     }
   });
 
   socket.on('chat message', function(msg) {
-    var item = document.createElement('p');
-    item.textContent = msg;
-    messages.appendChild(item);
+    myMessage(msg)
+    {{!-- var cardBody = document.createElement('p');
+    cardBody.classList.add('card-body');
+    cardBody.textContent = msg;
+    chatMessage.appendChild(cardBody); --}}
     window.scrollTo(0, document.body.scrollHeight);
   });
+
+  function myMessage(msg) {
+    const chatBubble = document.createElement('div')
+    chatBubble.setAttribute('class', 'card w-100')
+    chatBubble.setAttribute('id', 'chat-message')
+
+    const cardHeader = document.createElement('div')
+    cardHeader.setAttribute('class', 'card-header d-flex justify-content-between p-3')
+    cardHeader.setAttribute('style', 'background: #99C3AA;')
+    chatBubble.appendChild(cardHeader)
+    
+    const firstName = document.createElement('p')
+    firstName.setAttribute('class', 'fw-bold mb-0')
+    {{!-- firstName.innerHTML = `${req.session.user?.first_name}` --}}
+    cardHeader.appendChild(firstName)
+
+    const chatBody = document.createElement('div')
+    chatBody.setAttribute('class', 'card-body')
+    chatBubble.appendChild(chatBody)
+
+    const chatBodyText = document.createElement('p')
+    chatBodyText.setAttribute('class', 'mb-0')
+    chatBodyText.textContent = msg
+    chatBody.appendChild(chatBodyText)
+
+    const imageContainer = document.createElement('div')
+    imageContainer.setAttribute('class', 'style', 'display: flex; justify-content: end;')
+    const imageIcon = document.createElement('img')
+    imageIcon.setAttribute('src', '/images/onebook.png')
+    imageIcon.setAttribute('width', '60')
+    imageIcon.setAttribute('alt', 'avatar')
+    imageIcon.setAttribute('class', 'rounded-circle d-flex align-self-start ms-3 shadow-1-strong p-1')
+    imageContainer.appendChild(imageIcon)
+
+    const chatBubbleContainer = document.createElement('div')
+    chatBubbleContainer.setAttribute('class', 'chatBubbleContainer')
+    chatBubbleContainer.appendChild(imageContainer)
+    chatBubbleContainer.appendChild(chatBubble)
+
+    const chatBubbleSpace = document.createElement('li')
+    chatBubbleSpace.setAttribute('class', 'd-flex justify-content-end mb-4')
+    chatBubbleSpace.appendChild(chatBubbleContainer)
+
+    chatMessage.appendChild(chatBubbleSpace)
+  }
+
 </script>
