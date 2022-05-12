@@ -101,8 +101,8 @@ router.get('/reviewcomments/:id', withAuth, (req,res) => {
         console.log(hbsBlog)
         console.log('===================')
         console.log(hbsBlog.comments)
-        console.log(hbsBlog.comments[0].user.first_name)
-        console.log(hbsBlog.comments[0].body)
+        // console.log(hbsBlog.comments[0].user.first_name)
+        // console.log(hbsBlog.comments[0].body)
         hbsBlog.loggedIn = req.session.user?true:false;
         hbsBlog.first_name = req.session.user?.first_name;
         res.render('comment', {hbsBlog})
