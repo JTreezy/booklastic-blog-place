@@ -109,8 +109,8 @@ router.get('/reviewcomments/:id', withAuth, (req,res) => {
     })
 })
 
-// router.get('*', (req, res) => {
-//     res.redirect("/mylibrary")
-// })
+router.get('*', (req, res) => {
+    res.redirect("/mylibrary")
+})
 
 module.exports = router;
