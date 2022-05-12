@@ -3,6 +3,15 @@ const router = express.Router();
 const {User,Blog,Comment} = require("../../models/");
 const bcrypt  = require("bcrypt");
 
+router.get('/sessionID', (req, res) => {
+  console.log(req.sessionID)
+  const sessionObj = {
+    sessionID: req.sessionID,
+    userName: req.session.user.first_name
+  } 
+  res.json(sessionObj)
+})
+
 //find all
 router.get("/", (req, res) => {
   User.findAll({
