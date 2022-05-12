@@ -1,0 +1,38 @@
+<h2 style="font-size: 80px; padding: 20px;">Leave A Comment!</h2>
+<div class="container d-flex flex-wrap justify-content-around">
+{{!-- {{#each blogs}} --}}
+<div class="container">
+        <div class="px-1 d-flex justify-content-center">
+            <div class="card text-dark bg-warning mb-3"style="width: 70rem; height: 20rem">
+                <div class="card-header">{{title}}</div>
+                <div class="card-body">
+                    <ul style="text-decoration: underline !important; list-style-type: none !important; padding: 0 !important;">
+                        <li><h5 class="card-title">{{book.title}}</h5></li>
+                        <li><h5 class="card-title">{{book.author}}</h5></li>
+                    </ul>
+                    <h5 class="card-title">{{review.bookGenre}}</h5>
+                    <p class="card-text" style="height: 7rem; overflow-y: scroll;">{{review}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{{!-- the /each block migght go here --}}
+</div>
+ <div class="container">
+        <div class="form-group">
+            <label for="comment">What's On Your Mind? 📝</label>
+            <textarea class="form-control" rows="5" id="comment"></textarea>
+        </div>
+        <div class="d-flex justify-content-end my-4">
+            <button type="button" class="btn btn-link" id="airplaneButton"><img src="/images/message.png" alt="paper air plane" style="width: 40px;" data-toggle="tooltip" data-placement="top" title="Submit my review"></button>
+        </div>
+</div>
+{{!-- comments start underneath to keep this there --}}
+<div class="d-flex justify-content-center">
+    <div class="card m-2"style="width: 70rem; height: 10rem; overflow-y: scroll;">
+        <div class="card-header">Commenter's First Name</div>
+        <div class="card-body">
+            <p class="card-text">« Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. »tneabgutbeaobgrbealbgbrebaogbrebobngorbeoabngbreobaognreagnrenongirenoignioreniaongrieiognrone</p>
+        </div>
+    </div>
+</div>
