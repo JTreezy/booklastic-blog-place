@@ -8,6 +8,10 @@ var reviewTitle = document.querySelector("#reviewTitle");
 var reviewComemnt = document.querySelector("#comment");
 var autopopulatecontainer = document.querySelector("#autopopulatecontainer");
 
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+
 pageLoad();
 
 function pageLoad() {
@@ -45,17 +49,13 @@ bookSubmit.addEventListener("click", event => {
         if(res.ok){ 
             return res.json()
         } else {
-            // alert("We don't have that book in our database yet! Please provide some more info.")
-            location.href='/newbook'
-
-            // if(res.ok){ 
-            //     return res.json()
-            // } else if (res.status XXX) {
-            //     location.href='/newbook'
-            // } else {
-            //     throw console.error();
-            // }
-
+            var myModal = new bootstrap.Modal(document.getElementById('booknotinDB'))
+            myModal.show();
+            $('#booknotinDBclose').on("click", function (event){
+                event.preventDefault();
+                location.href='/newbook'
+            })
+// TODO: check other status, not catch all for this
 
 
         }
@@ -69,14 +69,14 @@ bookSubmit.addEventListener("click", event => {
 })
 
 airplaneButton.addEventListener("click",e=>{
-    console.log(e)
     e.preventDefault()
     let title = reviewTitle.value
     title = title.trim(); 
     let review = comment.value;
     review = review.trim();
     if (!title || !review || !autopopTitle.value) {
-        alert('Please select a book by clicking the "Submit" button before writing your review! Review must include both a title and a review body.')
+        var myModal = new bootstrap.Modal(document.getElementById('reviewincomplete'))
+        myModal.show();
         return;
     }
     const blogObj = {
@@ -93,7 +93,12 @@ airplaneButton.addEventListener("click",e=>{
     }).then(res=>{
         if(res.ok){
             console.log('YAY')
-            location.href='/mylibrary'
+            var myModal = new bootstrap.Modal(document.getElementById('reviewcreated'))
+            myModal.show();
+            $('#reviewcreatedclose').on("click", function (event){
+                event.preventDefault();
+                location.href='/mylibrary'
+            })
         } else {
             alert("error; please try again")
         }

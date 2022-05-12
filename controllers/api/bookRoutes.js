@@ -40,11 +40,6 @@ router.post("/findbytitle", (req, res) => {
     console.log(foundBook)
     console.log('==============')
     console.log(hbsBook)    
-    // req.session.id = hbsBook.id;
-    // req.session.title = hbsBook.title;
-    // req.session.author = hbsBook.author;
-    // req.session.genre = hbsBook.genre;
-
     return res.json(hbsBook);
   }).catch(err => {
       console.log(err);
