@@ -1,19 +1,19 @@
 # [Booklastic-Blog-Place](URL)
 
-TODO: 
-Credit for login/signup styling
-Screenshots/gifs of app
-Video demo of usage
-Heroku link
+TODO: <br>
+Credit for login/signup styling <br>
+Screenshots/gifs of app <br>
+Video demo of usage <br>
+Heroku link <br>
 
 ![Badge](https://img.shields.io/badge/license-MIT-blue)
 
 ---
 ## Description
 
-Welcome to Booklastic Blog Place! This application is a full-stack blog where bookies can bond. We aim to recruit users from around the world, to create a community of people who love to read! Come visit our site to share with our community what you have been reading and your review (including thoughts, opinions and questions) about your book. Save your review to your personal library page, but also share it with the world! From your personal library page, you can edit/delete your reviews if needed. From the homepage, you can read all reviews and leave comments on specific reviews! Interact with others by including questions in your review for them to comment on, or commenting on others. Additionally, use our live chat feature to communicate with bookies in real time!
+Welcome to Booklastic Blog Place! This application is a full-stack blog where bookies can bond. We aim to recruit users from around the world, to create a community of people who love to read! Come visit our site to share with our community what you have been reading and your review (including thoughts, opinions and questions) about your book. Save your review to your personal library page, but also share it with the world! From your personal library page, you can edit/delete your reviews if needed. From the homepage, you can read all reviews and leave comments on their! Interact with others by including questions in your review for them to comment on, or commenting on others reviews. Additionally, use our live chat feature to communicate with bookies in real time!
 
-On the backend, we have a library database of books that stores both titles and authors and links to associated genres. Additionally, we house a database of our user accounts (first name, email and encrypted passwords). Associated to each user are their blogs, books, and comments! 
+On the backend, we have a library database of books that stores both titles and authors and links to associated genres. You can choose from a book with already have, or add a new one! Additionally, we house a database of our user accounts (first name, email and encrypted passwords). Associated to each user are their blogs, books, and comments! 
 
 We aim to help you find a good book recommendation (or a few) for the next time you are ready to head to the bookstore! 
 
@@ -24,7 +24,7 @@ Check out our deployed [project](URL)!
 
 * [Installation](#installation)
 * [Packages](#packages)
-+ [Usage](#usage)
+* [Usage](#usage)
 * [User Story](#user-story)
 * [Acceptance Criteria](#acceptance-criteria)
 * [Demo](#demo)
@@ -58,7 +58,7 @@ General Technologies:
 - Insomnia
 
 NPM Packages
-- nodemon 
+- [nodemon](https://www.npmjs.com/package/nodemon) 
 - [Express](https://www.npmjs.com/package/express)
 - [dotenv](https://www.npmjs.com/package/dotenv)
 - [MySQL2](https://www.npmjs.com/package/mysql)
@@ -94,8 +94,8 @@ After following the instructions in installation:
 ---
 ## User-Story
 
-AS A BOOK LOVER
-I WANT a community of people like me who love to read 
+AS A BOOK LOVER <br>
+I WANT a community of people like me who love to read <br>
 SO THAT I can express my thoughts on books I love (or don't!), further my understanding of books through dialogue with others, find new book recommendations, and share my passion for literature! 
 
 ---
