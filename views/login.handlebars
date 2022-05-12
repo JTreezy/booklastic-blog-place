@@ -1,0 +1,102 @@
+<link rel="stylesheet" href="../public/css/login.css">
+<div class="section">
+    <div class="container">
+        <div class="row full-height justify-content-center">
+            <div class="col-12 text-center align-self-center py-5">
+                <div class="section pb-5 pt-5 pt-sm-2 text-center">
+                    <h1 class="text-center font-weight-bold pb-5">Come Join The Club!</h1>
+                    <h6 class="mb-0 pb-3"><span>Log In </span><span>Sign Up</span></h6>
+                    <input class="checkbox" type="checkbox" id="reg-log" name="reg-log"/>
+                    <label for="reg-log"></label>
+                    <div class="card-3d-wrap mx-auto">
+                        <div class="card-3d-wrapper">
+                            <div class="card-front">
+                                <div class="center-wrap">
+                                    <div class="section text-center">
+                                        <h4 class="mb-4 pb-3">Log In</h4>
+                                        <div class="form-group">
+                                            <input type="email" name="loginuser" class="form-style" placeholder="Your Email" id="loginEmail" autocomplete="off">
+                                            <i class="input-icon uil uil-at"></i>
+                                        </div>  
+                                        <div class="form-group mt-2">
+                                            <input type="password" name="logpass" class="form-style" placeholder="Your Password" id="loginPassword" autocomplete="off">
+                                            <i class="input-icon uil uil-lock-alt"></i>
+                                        </div>
+                                        <a href="#" class="btn mt-4" style="background: #ffeba7;" id="loginButton">submit</a>
+<!--                                            <p class="mb-0 mt-4 text-center"><a href="#0" class="link">Forgot your password?</a></p> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-back">
+                                <div class="center-wrap">
+                                    <div class="section text-center">
+                                        <h4 class="mb-4 pb-3">Sign Up</h4>
+                                        <div class="form-group">
+                                            <input type="text" name="logname" class="form-style" placeholder="Your First Name" id="signupFirstname" autocomplete="off">
+                                            <i class="input-icon uil uil-user"></i>
+                                        </div>  
+                                        <div class="form-group mt-2">
+                                            <input type="email" name="loginemail" class="form-style" placeholder="Your Email" id="signupEmail" autocomplete="off">
+                                            <i class="input-icon uil uil-at"></i>
+                                        </div>  
+                                        <div class="form-group mt-2">
+                                            <input type="password" name="loginpass" class="form-style" placeholder="Your Password" id="signupPassword" autocomplete="off">
+                                            <i class="input-icon uil uil-lock-alt"></i>
+                                        </div>
+                                        <a href="#" class="btn mt-4" style="background: #ffeba7;" id="signupButton">submit</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+ <div class="modal fade" id="loginfail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <p>Login failed; please try again!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="loginfailclose">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <div class="modal fade" id="signupsuccess" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <p>Success! Enjoy the club!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="signupsuccessclose">Enter</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <div class="modal fade" id="signupfail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <p>Signup failed; please try again!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="signupfailclose">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="../js/login.js"></script>

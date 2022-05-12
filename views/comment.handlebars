@@ -1,0 +1,82 @@
+<h2 style="font-size: 80px; padding: 20px;">Leave A Comment!</h2>
+<div class="container d-flex flex-wrap justify-content-around">
+{{!-- {{#each blogs}} --}}
+<div class="container">
+        <div class="px-1 d-flex justify-content-center">
+            <div class="card text-dark bg-warning mb-3"style="width: 70rem; height: 20rem">
+                <div class="card-header">
+                    <div>{{title}}</div>
+                    <div>review by {{user.first_name}}</div>
+                    <p class="card-header d-none" id="hiddenEl" data-id={{id}}></p>
+                </div>
+                <div class="card-body">
+                    <ul style="text-decoration: underline !important; list-style-type: none !important; padding: 0 !important;">
+                        <li><h5 class="card-title">{{book.title}}</h5></li>
+                        <li><h5 class="card-title">{{book.author}}</h5></li>
+                    </ul>
+                    {{#each book.genres}}
+                    <h5 class="card-title">{{name}}</h5>
+                    {{/each}}
+                    <p class="card-text" style="height: 7rem; overflow-y: scroll;">{{review}}</p>
+                </div>
+            </div>
+    </div>
+</div>
+{{!-- the /each block migght go here --}}
+</div>
+
+{{!-- comments start underneath to keep this there --}}
+{{#each comments}}
+<div class="d-flex justify-content-center">
+    <div class="card m-2"style="width: 70rem; height: 10rem; overflow-y: scroll;">
+        <div class="card-header">{{user.first_name}}</div>
+        <div class="card-body">
+            <p class="card-text">{{body}}</p>
+        </div>
+    </div>
+</div>
+{{/each}}
+
+ <div class="container">
+        <div class="form-group">
+            <label for="comment">What's On Your Mind? 📝</label>
+            <textarea class="form-control" rows="5" id="newcomment"></textarea>
+        </div>
+        <div class="d-flex justify-content-end my-4">
+            <button type="button" class="btn btn-link" id="airplaneButton"><img src="/images/message.png" alt="paper air plane" style="width: 40px;" data-toggle="tooltip" data-placement="top" title="Submit my comment"></button>
+        </div>
+</div>
+
+ <div class="modal fade" id="emptycomment" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <p>
+            Please type a comment before submitting!
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="emptycommentclose">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <div class="modal fade" id="commentcreated" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <p>
+            Success! Comment submitted.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="commentcreatedclose">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="../js/comment.js"></script>

@@ -1,0 +1,93 @@
+    <!-- also used in the my library and most likely the bookclub -->
+    <h2 style="font-size: 60px; padding: 20px;"> {{first_name}}, How Was The Read?</h2>
+    <!-- search bar -->
+    <div class="container">
+        <div class="row height d-flex justify-content-center align-items-center">
+          <div class="col-md-10">
+            <div class="search d-flex">
+              <i class="fa fa-search"></i>
+              <input type="text" class="form-control mx-1" placeholder="Type Book Title Here!" id="bookInput" list="bookList" data-toggle="tooltip" data-placement="top" title="Type or pick your book then 'submit'!">
+              <datalist id="bookList">
+              </datalist>
+              <button class="btn btn-primary" id="bookSubmit" data-toggle="tooltip" data-placement="top" title="Let's review this book!">Submit</button>
+            </div>
+          </div>
+        </div>
+    </div>
+    <!-- this is where the review input starts -->
+    <div class="container">
+        <h3 class="d-flex justify-content-center p-5">Your Review</h3>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">Review Title</span>
+            </div>
+                <input type="text" class="form-control" aria-label="Title" aria-describedby="basic-addon1" id="reviewTitle">
+    </div>
+        <!-- this is where the authore and title autopopulate-->
+    <div class="container d-none" id="autopopulatecontainer">
+        <ul class="m-3 row">
+            <li class="list-group-item disabled mb-2 col-8" id="autopopTitle">{{hbsBook.title}}</li>
+            <li class="list-group-item disabled mb-2 col" id="autopopAuth">{{hbsBook.author}}</li>
+        </ul>
+    </div>
+    {{!-- review comment --}}
+    </div>
+    <div class="container">
+        <div class="form-group">
+            <label for="comment">Review 📝</label>
+            <textarea class="form-control" rows="5" id="comment"></textarea>
+        </div>
+        <div class="d-flex justify-content-end my-4">
+            <button type="button" class="btn btn-link" id="airplaneButton"><img src="/images/send.png" alt="paper air plane" style="width: 40px;" data-toggle="tooltip" data-placement="top" title="Submit my review"></button>
+        </div>
+    </div>
+
+<div class="modal fade" id="reviewincomplete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <p>
+            Please select a book by clicking the "Submit" button before writing your review! Review must include both a title and a review body.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <div class="modal fade" id="reviewcreated" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <p>
+            Review created!
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="reviewcreatedclose">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <div class="modal fade" id="booknotinDB" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <p>
+            {{first_name}}, we don't know that book. Please provide us some info!
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="booknotinDBclose">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="js/review.js"></script>
+

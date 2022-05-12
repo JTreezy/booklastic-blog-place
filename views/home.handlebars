@@ -1,0 +1,40 @@
+{{#if loggedIn}}
+<h2 style="font-size: 80px; padding: 20px;">Welcome, {{first_name}}!</h2>
+{{else}}
+<h2 style="font-size: 80px; padding: 20px;">Welcome to the Club!</h2>
+<h4 class="px-5">Please log in!</h4>
+{{/if}}
+<div class="container d-flex flex-wrap justify-content-around">
+{{#each blogs}}
+    <div class="d-flex">
+        <div class="p-1">
+            <div class="card text-dark bg-warning mb-3" style="width: 18rem;">
+                <div class="card-header">
+                    <div>{{title}}</div>
+                    <div>review by {{user.first_name}}</div>
+                    </div>
+                <div class="card-body">
+                    <ul style="text-decoration: underline !important; list-style-type: none !important; padding: 0 !important;">
+                        <li><h5 class="card-title">{{book.title}}</h5></li>
+                        <li><h5 class="card-title">{{book.author}}</h5></li>
+                    </ul>
+                    {{#each book.genres}}
+                    <h5 class="card-title">{{name}}</h5>
+                    {{/each}}
+                    <p class="card-text" style="height: 7rem; overflow-y: scroll;">{{review}}</p>
+                <div class="card-footer bg-transparent d-flex justify-consent-between p-0">
+                    <ul class="d-flex p-0" style="list-style-type:none;">
+                        <li style="padding-top:5px; padding-right: 5px;">
+                            <button type="button" class="btn btn-link commentbtn" data-toggle="tooltip" data-placement="top" title="Read or add comments" style="padding:10px;" value="{{id}}"><img src="/images/message.png" alt="pencil with a text bubble underneath it" style="width: 40px;"></button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+</div>
+</div>
+{{/each}}
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="js/home.js"></script>

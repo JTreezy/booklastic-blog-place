@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booklastic</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">
+    <link rel="stylesheet" href="../public/css/login.css">
+</head>
+<body style="background: #E7E2D3;">
+    <!-- Navigation bar might include this in the main handlebars -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background: #8DA675 !important">
+        <div class="container-fluid">
+          <h3 class="navbar-brand fw-bolder" href="#" style="color: #675541">📖  Booklastic 📖</h3>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="#dashboard">Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#thebookclub">The Bookclub</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#mylibrary">My Library</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#logout">Logout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav> 
+    <!-- this is the beginning of the page for the library -->
+    <!-- there will be two major columns to spilt the favorites(25%) and the reviews (75%) -->
+    <!-- inside the favorites section there will be two rows and three cards across max -->
+    <!-- just creating an area for the reviews and button -->
+<!-- beginning card 1 -->
+<h2 style="font-size: 80px; padding: 20px;">My Library</h2>
+<div class="container">
+    <div class="row row-cols-3">
+        <div class="col">
+            <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
+                <div class="card-header">REVIEW TITLE</div>
+                <div class="card-body">
+                    <ul class="d-flex justify-content-between" style="text-decoration: underline !important; list-style-type: none !important; padding: 0 !important;">
+                        <li><h5 class="card-title">Title</h5></li>
+                        <li><h5 class="card-title">Author</h5></li>
+                    </ul>
+                    <h5 class="card-title">Genre</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <div class="card-footer bg-transparent d-flex justify-content-between p-0">
+                    <ul class="d-flex p-0" style="list-style-type:none;">
+                        <li style="padding-top:5px; padding-right: 5px;">
+                            <button type="button" class="btn btn-link" style="padding:10px;"id="deletebtn">
+                                <img src="../assets/trash-can.png" alt="trashcan" style="max-width: 20px;">
+                            </button>
+                        </li>
+                        <li style="padding-top:5px; padding-right: 5px;">
+                            <button type="button" class="btn btn-link" id="editbtn" style="padding:10px;">
+                                <img src="../assets/pencil.png" alt="trashcan" style="max-width: 20px;">
+                            </button>
+                        </li>
+                    </ul>
+                    <h6 class="d-flex align-items-center">@username</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- end card 1 -->
+
+<!-- beginning card 2 -->
+<div class="col">
+<div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
+    <div class="card-header">REVIEW TITLE</div>
+    <div class="card-body">
+        <ul class="d-flex justify-content-between" style="text-decoration: underline !important; list-style-type: none !important; padding: 0 !important;">
+            <li><h5 class="card-title">Title</h5></li>
+            <li><h5 class="card-title">Author</h5></li>
+        </ul>
+      <h5 class="card-title">Genre</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <div class="card-footer bg-transparent d-flex justify-content-between p-0">
+          <ul class="d-flex p-0" style="list-style-type:none;">
+              <li style="padding-top:5px; padding-right: 5px;"><button type="button" class="btn btn-link" id="deletebtn" style="padding:10px;"><img src="../assets/trash-can.png" alt="trashcan" style="max-width: 20px;"></button></li>
+              <li style="padding-top:5px; padding-right: 5px;"><button type="button" class="btn btn-link" id="editbtn" style="padding:10px;"><img src="../assets/pencil.png" alt="trashcan" style="max-width: 20px;"></button></li>
+          </ul>
+        <h6 class="d-flex align-items-center">@username</h6>
+      </div>
+</div>
+</div>
+</div>
+<!-- end card 2 -->
+<!-- beginning card 3 -->
+<div class="col">
+<div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
+    <div class="card-header">REVIEW TITLE</div>
+    <div class="card-body">
+        <ul class="d-flex justify-content-between" style="text-decoration: underline !important; list-style-type: none !important; padding: 0 !important;">
+            <li><h5 class="card-title">Title</h5></li>
+            <li><h5 class="card-title">Author</h5></li>
+        </ul>
+      <h5 class="card-title">Genre</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <div class="card-footer bg-transparent d-flex justify-content-between p-0">
+          <ul class="d-flex p-0" style="list-style-type:none;">
+              <li style="padding-top:5px; padding-right: 5px;"><button type="button" class="btn btn-link" id="deletebtn" style="padding:10px;"><img src="../assets/trash-can.png" alt="trashcan" style="max-width: 20px;"></button></li>
+              <li style="padding-top:5px; padding-right: 5px;"><button type="button" class="btn btn-link" id="editbtn" style="padding:10px;"><img src="../assets/pencil.png" alt="trashcan" style="max-width: 20px;"></button></li>
+          </ul>
+        <h6 class="d-flex align-items-center">@username</h6>
+      </div>
+</div>
+</div>
+</div>
+<!-- end card 3 -->
+</div>
+</div>
+<div class="d-flex justify-content-center">
+    <button type="button" class="btn btn-dark"><a href="#review">Add a Review!</a></button>
+</div>
+</body>
