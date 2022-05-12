@@ -7,6 +7,8 @@ var sendit = document.getElementById('sendit');
 var chatMessage = document.getElementById('chat-message');
 
 var senderID;
+var senderName;
+
 fetch('/api/users/sessionID', {
     method: 'GET',
     headers: {
@@ -17,6 +19,7 @@ fetch('/api/users/sessionID', {
 .then(data => {
   console.log('Success:', data);
   senderID = data
+  senderName = data.userName
 })
 .catch((error) => {
   console.error('Error:', error);
@@ -35,8 +38,10 @@ socket.on('chat message', function(msg) {
   console.log(msg)
   if(senderID.sessionID === msg.sessionID){
     console.log('same sender')
+    
   } else {
     console.log('different sender')
+    //if different sender, change name 
   }
   myMessage(msg.msg)
   window.scrollTo(0, document.body.scrollHeight);
@@ -54,7 +59,9 @@ function myMessage(msg) {
   
   const firstName = document.createElement('p')
   firstName.setAttribute('class', 'fw-bold mb-0')
-  //firstName.textContent = data.userName//
+// Name of the session to be added to the cardheader
+  firstName.textContent = senderName
+  //firstName.innerHTML = `${msg.}`//
   //{{first_name}}//
   cardHeader.appendChild(firstName)
 
