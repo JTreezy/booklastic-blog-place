@@ -45,17 +45,17 @@ app.get('/bookclub', (req, res) => {
 });
 
 sequelize.sync({ force: false }).then(function() {
-http.listen(PORT, function() {
-    console.log("App listening on PORT " + PORT);
-    io.on('connection', (socket) => {
-      console.log('user connected');
-      socket.on('chat message', (msg) => {
-        console.log('message: ' + msg);
-        io.emit('chat message', msg);
-      });
-      socket.on('disconnect', () => {
-        console.log('user disconnected');
-      });
-    })
+  http.listen(PORT, function() {
+      console.log("App listening on PORT " + PORT);
+      io.on('connection', (socket) => {
+        console.log('user connected');
+        socket.on('chat message', (msg) => {
+          console.log('message: ' + msg);
+          io.emit('chat message', msg);
+        });
+        socket.on('disconnect', () => {
+          console.log('user disconnected');
+        });
+      })
+    });
   });
-});

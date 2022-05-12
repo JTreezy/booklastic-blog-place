@@ -19,8 +19,12 @@ updatebtn.addEventListener("click", event => {
     }).then(res=>{
         if(res.ok){
             console.log("blog updated")
-            alert('Blog updated!')
-            location.href="/mylibrary"
+            var myModal = new bootstrap.Modal(document.getElementById('blogupdated'))
+            myModal.show();
+            $('#blogupdatedClose').on("click", function (event){
+                event.preventDefault();
+                location.href='/mylibrary'
+            })
         } else {
             alert("please try again")
         }

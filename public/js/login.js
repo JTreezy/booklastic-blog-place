@@ -17,9 +17,14 @@ document.querySelector("#loginButton").addEventListener("click",e=>{
             console.log("logged in")
             location.href="/mylibrary"
             // changing the stylesheet in login 
-            document.getElementById('css-source').setAttribute("href", "/css/style.css")
+            // document.getElementById('css-source').setAttribute("href", "/css/style.css")
         } else {
-            alert("Login failed; please try again!")
+            var myModal = new bootstrap.Modal(document.getElementById('loginfail'))
+            myModal.show();
+            $('#loginfailclose').on("click", function (event){
+                event.preventDefault();
+                location.reload();
+            })
         }
     })
 })
@@ -41,11 +46,21 @@ document.querySelector("#signupButton").addEventListener("click",e=>{
     }).then(res=>{
         if(res.ok){
             console.log("signed up")
-            location.href="/mylibrary"
+            var myModal = new bootstrap.Modal(document.getElementById('signupsuccess'))
+            myModal.show();
+            $('#signupsuccessclose').on("click", function (event){
+                event.preventDefault();
+                location.href='/'
+            })
             // changing the stylesheet in signup 
-            document.getElementById('css-source').setAttribute("href", "/css/style.css")
+            // document.getElementById('css-source').setAttribute("href", "/css/style.css")
         } else {
-            alert("Signup failed; please try again!")
+            var myModal = new bootstrap.Modal(document.getElementById('signupfail'))
+            myModal.show();
+            $('#signupfailclose').on("click", function (event){
+                event.preventDefault();
+                location.reload();
+            })
         }
     })
 })

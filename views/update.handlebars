@@ -28,30 +28,23 @@
     </div>
 {{!-- 
 
-
-<div class="container d-flex flex-wrap">
-<div class="d-flex">
-        <div class="px-1">
-            <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
-                <textarea class="card-header" id="titleEl">{{title}}</textarea>
-                <div class="card-body">
-                    <ul style="text-decoration: underline !important; list-style-type: none !important; padding: 0 !important;">
-                        <li><h5 class="card-title">{{book.title}}</h5></li>
-                        <li><h5 class="card-title">{{book.author}}</h5></li>
-                    </ul>
-                    <h5 class="card-title">{{review.bookGenre}}</h5>
-                    <textarea class="card-text" id="reviewEl">{{review}}</textarea>
-                <div class="card-footer bg-transparent d-flex justify-content-between p-0">
-                    <ul class="d-flex p-0" style="list-style-type:none;">
-                        <li style="padding-top:5px; padding-right: 5px;">
-                            <button type="button" class="btn btn-link editbtn" id="updatebtn" style="padding:10px;" value="{{id}}">Update</button>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+ <div class="modal fade" id="blogupdated" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <p>
+            Review updated!
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="blogupdatedClose">Close</button>
+      </div>
     </div>
-</div> --}}
+  </div>
+</div>
+
+
+
 </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
