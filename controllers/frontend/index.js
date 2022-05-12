@@ -21,7 +21,10 @@ router.get("/",(req,res)=>{
         const loggedIn = req.session.user?true:false
         hbsBlogs.first_name = req.session.user?.first_name;
         res.render("home",{blogs:hbsBlogs,loggedIn,first_name:req.session.user?.first_name}) 
-    })
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json({ msg: "an error occured", err });
+    });
 })
 
 router.get("/login",(req,res)=>{
@@ -42,7 +45,10 @@ router.get('/mylibrary',withAuth, (req, res) => {
         console.log('===========')
         // TODO: PARSE FOR NESTED GENRE-NAME IF EXIST, USERNAME IF NEEDED??? ON THEIR OWN PAGE, SO USERNAME NOT NECESSARY
         res.render("mylibrary", hbsData)
-    })
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json({ msg: "an error occured", err });
+    });
 })
 
 router.get('/review', withAuth, (req, res) => {
@@ -64,6 +70,22 @@ router.get('/bookclub', withAuth, (req, res) => {
     passoffData.loggedIn = req.session.user?true:false;
     passoffData.first_name = req.session.user?.first_name;
     res.render('bookclub', passoffData)
+})
+
+router.get('/blogs/:id', withAuth, (req, res) => {
+    Blog.findByPk(req.params.id, {
+        include: [User, Comment, {model: Book, include: [Genre]}]
+      })
+        .then(thisBlog => {
+          const hbsBlog = thisBlog.get({plain:true})
+          hbsBlog.loggedIn = req.session.user?true:false;
+          hbsBlog.first_name = req.session.user?.first_name;
+          res.render('update', hbsBlog)
+        })
+        .catch(err => {
+          console.log(err);
+          res.status(500).json({ msg: "an error occured", err });
+        });
 })
 
 // to get the images to run on the page

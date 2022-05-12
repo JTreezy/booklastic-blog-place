@@ -51,7 +51,10 @@ router.post("/", (req, res) => {
 
 //update Blog
 router.put("/:id", (req, res) => {
-  Blog.update(req.body, {
+  Blog.update({
+    title: req.body.title,
+    review: req.body.review
+  }, {
     where: {
       id: req.params.id
     }
