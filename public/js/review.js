@@ -97,7 +97,12 @@ airplaneButton.addEventListener("click",e=>{
     }).then(res=>{
         if(res.ok){
             console.log('YAY')
-            location.href='/mylibrary'
+            var myModal = new bootstrap.Modal(document.getElementById('reviewcreated'))
+            myModal.show();
+            $('#reviewcreatedclose').on("click", function (event){
+                event.preventDefault();
+                location.href='/mylibrary'
+            })
         } else {
             alert("error; please try again")
         }
