@@ -16,8 +16,6 @@ document.querySelector("#loginButton").addEventListener("click",e=>{
         if(res.ok){  //200 status code
             console.log("logged in")
             location.href="/mylibrary"
-            // changing the stylesheet in login 
-            // document.getElementById('css-source').setAttribute("href", "/css/style.css")
         } else {
             var myModal = new bootstrap.Modal(document.getElementById('loginfail'))
             myModal.show();
@@ -52,8 +50,6 @@ document.querySelector("#signupButton").addEventListener("click",e=>{
                 event.preventDefault();
                 location.href='/'
             })
-            // changing the stylesheet in signup 
-            // document.getElementById('css-source').setAttribute("href", "/css/style.css")
         } else {
             var myModal = new bootstrap.Modal(document.getElementById('signupfail'))
             myModal.show();
