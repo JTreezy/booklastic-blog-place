@@ -4,11 +4,11 @@
     <!-- just creating an area for the reviews and button -->
 <!-- beginning card -->
 <h2 style="font-size: 80px; padding: 20px;">{{first_name}}'s Library</h2>
-<div class="container d-flex flex-wrap">
+<div class="container d-flex flex-wrap justify-content-center">
 {{#each blogs}}
 <div class="d-flex">
         <div class="px-1">
-            <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
+            <div class="card text-dark bg-warning mb-3" style="width: 18rem;">
                 <div class="card-header">{{title}}</div>
                 <div class="card-body">
                     <ul style="text-decoration: underline !important; list-style-type: none !important; padding: 0 !important;">
@@ -16,7 +16,7 @@
                         <li><h5 class="card-title">{{book.author}}</h5></li>
                     </ul>
                     <h5 class="card-title">{{review.bookGenre}}</h5>
-                    <p class="card-text">{{review}}</p>
+                    <p class="card-text" style="height: 7rem; overflow-y: scroll;">{{review}}</p>
                 <div class="card-footer bg-transparent d-flex justify-content-between p-0">
                     <ul class="d-flex p-0" style="list-style-type:none;">
                         <li style="padding-top:5px; padding-right: 5px;">

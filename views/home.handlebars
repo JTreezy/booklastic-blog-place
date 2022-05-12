@@ -5,7 +5,7 @@
 <h2 style="font-size: 80px; padding: 20px;">Welcome to the Club!</h2>
 <h4 class="px-5">Please log in!</h4>
 {{/if}}
-<div class="container d-flex flex-wrap">
+<div class="container d-flex flex-wrap justify-content-center">
 {{#each blogs}}
     <div class="d-flex">
         <div class="p-1">
@@ -24,7 +24,7 @@
                     {{#each book.genres}}
                     <h5 class="card-title"><{{name}}/h5>
                     {{/each}}
-                    <p class="card-text">{{review}}</p>
+                    <p class="card-text" style="height: 7rem; overflow-y: scroll;">{{review}}</p>
                 <div class="card-footer bg-transparent d-flex justify-content-between p-0">
                     <ul class="d-flex p-0" style="list-style-type:none;">
                         <li style="padding-top:5px; padding-right: 5px;">
