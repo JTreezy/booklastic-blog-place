@@ -96,7 +96,4 @@ router.get('*', (req, res) => {
     res.redirect("/mylibrary")
 })
 
-// to get the images to run on the page
-
-
 module.exports = router;
