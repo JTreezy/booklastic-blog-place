@@ -7,10 +7,15 @@ router.get("/",(req,res)=>{
     Blog.findAll({
         include: [{model:User}, {model:Book, include: [{model:Genre}]}]
     }).then(blogs=>{
-        console.log(blogs)
         const hbsBlogs = blogs.map(blog=>blog.get({plain:true})) 
         console.log("==========")
         console.log(hbsBlogs)
+        console.log('===========')
+        console.log(hbsBlogs[0])
+        console.log('===========')
+        console.log(hbsBlogs[0].book)
+        console.log('===========')
+        console.log(hbsBlogs[0].book.genres)
         console.log('===========')
         console.log(hbsBlogs[0].book.genres[0].name)
         const loggedIn = req.session.user?true:false
