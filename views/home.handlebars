@@ -9,7 +9,7 @@
 {{#each blogs}}
     <div class="d-flex">
         <div class="p-1">
-            <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
+            <div class="card text-dark bg-warning mb-3" style="width: 18rem;">
                 <div class="card-header">
                     <div>{{title}}</div>
                     <div>review by {{user.first_name}}</div>
@@ -28,7 +28,7 @@
                 <div class="card-footer bg-transparent d-flex justify-content-between p-0">
                     <ul class="d-flex p-0" style="list-style-type:none;">
                         <li style="padding-top:5px; padding-right: 5px;">
-                            <button type="button" class="btn btn-link commentbtn" style="padding:10px;" value="{{id}}">Leave a comment!</button>
+                            <button type="button" class="btn btn-link commentbtn" style="padding:10px;" value="{{id}}"><img src="/images/message.png" alt="pencil with a text bubble underneath it" style="width: 40px;"></button>
                         </li>
                     </ul>
                 </div>
