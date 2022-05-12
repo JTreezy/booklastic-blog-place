@@ -1,9 +1,5 @@
 <h2 style="font-size: 80px; padding: 20px;">Bookclub Chat</h2>
 <h4 class="px-5">Chat with users online right now!</h4>
-<ul id="messages"></ul>
-    <form id="form" action="">
-      <input id="input" autocomplete="off" /><button>Send</button>
-    </form>
 
 {{!-- below is Brooke's --}}
 
@@ -75,18 +71,16 @@
           {{!-- message 3 ends --}}
           <li class="mb-3">
             <label class="form-label" for="textAreaExample2">Message</label>
-            <div class="form-outline">
-              <textarea class="form-control" id="textAreaExample2" rows="4"></textarea>
-              
-            </div>
-            {{!-- <div class="form-outline">
-              <textarea class="form-control" id="textAreaExample2" rows="4"></textarea>
-              <label class="form-label" for="textAreaExample2">Message</label>
-            </div> --}}
+            <ul id="messages"></ul>
+            <form id="form">
+              <div class="form-outline">
+                <input class="form-control" id="input" rows="4" />
+              </div>
           </li>
           <div class="d-flex justify-content-end">
-            <button type="button" class="btn btn-info btn-rounded float-end">Send</button>
+            <button id="sendit" type="button" class="btn btn-info btn-rounded float-end">Send</button>
           </div>
+            </form>
         </ul>
 
       </div>
@@ -94,13 +88,6 @@
     </div>
 
   </div>
-
-
-{{!-- <ul id="messages"></ul>
-    <form id="form" action="">
-      <input id="input" autocomplete="off" /><button>Send</button>
-    </form> --}}
-
 
 
 {{!-- JT & Andrew --}}
@@ -112,11 +99,12 @@
   var socket = io();
 
   var messages = document.getElementById('messages');
-  var messages = document.getElementById('messages2');
   var form = document.getElementById('form');
+  console.log(form)
   var input = document.getElementById('input');
+  var sendit = document.getElementById('sendit');
 
-  form.addEventListener('submit', function(e) {
+  sendit.addEventListener('click', function(e) {
     e.preventDefault();
     if (input.value) {
       socket.emit('chat message', input.value);
@@ -128,7 +116,6 @@
     var item = document.createElement('p');
     item.textContent = msg;
     messages.appendChild(item);
-    messages2.appendChild(item);
     window.scrollTo(0, document.body.scrollHeight);
   });
 </script>
