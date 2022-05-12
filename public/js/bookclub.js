@@ -8,7 +8,7 @@ var chatMessage = document.getElementById('chat-message');
 
 var senderID;
 fetch('/api/users/sessionID', {
-    method: 'GET', // or 'PUT'
+    method: 'GET',
     headers: {
     'Content-Type': 'application/json',
   },
@@ -54,7 +54,7 @@ function myMessage(msg) {
   
   const firstName = document.createElement('p')
   firstName.setAttribute('class', 'fw-bold mb-0')
-  //firstName.innerHTML = `${msg.}`//
+  //firstName.textContent = data.userName//
   //{{first_name}}//
   cardHeader.appendChild(firstName)
 
