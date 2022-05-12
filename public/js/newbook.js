@@ -104,7 +104,12 @@ console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
             }
         }).then(res=>{
             if(res.ok){
-                location.href='/mylibrary'
+                var myModal = new bootstrap.Modal(document.getElementById('successfulreview'))
+                myModal.show();
+                $('#successfulreviewclose').on("click", function (event){
+                    event.preventDefault();
+                    location.href='/mylibrary'
+                })
             } else {
                 alert("error; please try again")
             }
