@@ -2,16 +2,40 @@
 <h4 class="px-5">Chat with users online right now!</h4>
 <p class="d-none" id="name" data-value={{first_name}}></p>
 
-<div class="px-5">
-  <ul class="list-unstyled" id="chat-message">
-    <li class="d-flex justify-content-between mb-4">
-      <div>
-        <img src="/images/multibook.png" alt="avatar"
-          class="rounded-circle d-flex align-self-start me-3 shadow-1-strong p-1" width="60">
-        <div class="card">
-          <div class="card-header d-flex justify-content-between p-3">
-            <p class="fw-bold mb-0">BookChat Bot</p>
-            <p class="text-muted small mb-0"><i class="far fa-clock"></i></p>
+{{!-- below is Brooke's --}}
+
+      <div class="px-5">
+{{!-- creates chat message for a template --}}
+        <ul class="list-unstyled" id="chat-message">
+          <li class="d-flex justify-content-between mb-4">
+            <div>
+            <img src="/images/multibook.png" alt="avatar"
+              class="rounded-circle d-flex align-self-start me-3 shadow-1-strong p-1" width="60">
+            <div class="card">
+              <div class="card-header d-flex justify-content-between p-3">
+                <p class="fw-bold mb-0">Brad Pitt</p>
+                <p class="text-muted small mb-0"><i class="far fa-clock"></i> 10 mins ago</p>
+              </div>
+              <div class="card-body">
+                <p class="mb-0">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                  labore et dolore magna aliqua.
+                </p>
+              </div>
+            </div>
+            </div>
+          </li>
+          {{!-- send message starts here --}}
+          <li class="mb-3">
+            <label class="form-label" for="textAreaExample2">Message</label>
+            <ul id="messages"></ul>
+            <form id="chatApp">
+              <div class="form-outline">
+                <input class="form-control" id="sentMessage" rows="4" />
+              </div>
+          </li>
+          <div class="d-flex justify-content-end">
+            <button id="sendit" type="button" class="btn btn-info btn-rounded float-end">Send</button>
           </div>
           <div class="card-body">
             <p class="mb-0">
