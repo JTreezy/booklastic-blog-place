@@ -87,41 +87,42 @@
     <!-- this is where the book input starts -->
 <div class="container pt-5">
     {{!-- this is where the book title input goes --}}
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon1">Book Title</span>
-            </div>
-            <input type="text" class="form-control" aria-label="Title" aria-describedby="basic-addon1" id="newbooktitle">
-        </div>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">Book Title</span>
+  </div>
+      <input type="text" class="form-control" aria-label="Title" aria-describedby="basic-addon1" id="newbooktitle">
+  </div>
         <!-- this is where the authors inut goes-->
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon1">Author Title</span>
-            </div>
-                <input type="text" class="form-control" aria-label="Title" aria-describedby="basic-addon1" id="newauthortitle">
-            </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">Author Title</span>
+    </div>
+      <input type="text" class="form-control" aria-label="Title" aria-describedby="basic-addon1" id="newauthortitle">
+  </div>
 </div>
 {{!-- the review  --}}
-    <div class="container">
-        <h3 class="d-flex justify-content-center p-5">Your Review</h3>
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon1">Review Title</span>
-            </div>
-                <input type="text" class="form-control" aria-label="Title" aria-describedby="basic-addon1" id="newreviewTitle">
-    </div>
-    </div>
-    <div class="container">
+<div class="container">
+    <h3 class="d-flex justify-content-center p-5">Your Review</h3>
+  <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Review Title</span>
+      </div>
+        <input type="text" class="form-control" aria-label="Title" aria-describedby="basic-addon1" id="newreviewTitle">
+  </div>
+</div>
+<div class="container">
         <div class="form-group">
             <label for="comment">Review 📝</label>
             <textarea class="form-control" rows="5" id="newcomment"></textarea>
         </div>
     </div>
+    {{!-- submit the content --}}
 <div class="d-flex justify-content-end m-5">
     <button type="button" class="btn btn-link" style="margin-right: 120px;" id="newairplaneButton" data-toggle="tooltip" data-placement="top" title="Submit my book and review"><img src="/images/send.png" alt="paper air plane" style="width: 40px;"></button>
 </div>
-
-
+{{!-- modals start here --}}
+{{!-- if the use rdid not input a one of the four options --}}
 <div class="modal fade" id="modalA" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -136,7 +137,7 @@
     </div>
   </div>
 </div>
-
+{{!-- if the user did not put in a new title or/and author --}}
 <div class="modal fade" id="modalB" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -151,7 +152,7 @@
     </div>
   </div>
 </div>
-
+{{!-- if the book is not in our database --}}
 <div class="modal fade" id="modalC" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -166,7 +167,7 @@
     </div>
   </div>
 </div>
-
+{{!-- when the book is added to the page --}}
 <div class="modal fade" id="bookadded" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -181,7 +182,7 @@
     </div>
   </div>
 </div>
-
+{{!-- the book is already in our database --}}
 <div class="modal fade" id="bookexists" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -196,7 +197,7 @@
     </div>
   </div>
 </div>
-
+{{!-- next step after it is added to database --}}
 <div class="modal fade" id="bookaddednoreview" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -211,7 +212,7 @@
     </div>
   </div>
 </div>
-
+{{!-- when the review is created --}}
  <div class="modal fade" id="successfulreview" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">

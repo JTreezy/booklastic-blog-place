@@ -1,7 +1,9 @@
+// turn on tooltip
 $(function () {
     $('[data-toggle="tooltip"]').tooltip()
   })
 
+// commit button, on click redirect to comment page and pass off blog id in parameters
 $('.commentbtn').on("click", function (event) {
     event.preventDefault();
     var selectedItem = $(this);

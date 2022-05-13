@@ -1,6 +1,8 @@
 <h2 class="bigTitle"style="font-size: 80px; padding: 20px;">Leave A Comment!</h2>
 <div class="container d-flex flex-wrap justify-content-around">
-{{!-- {{#each blogs}} --}}
+
+{{!-- loads card onto the page --}}
+
 <div class="container">
         <div class="px-1 d-flex justify-content-center">
             <div class="card text-dark bg-warning mb-3"style="width: 70rem; height: 20rem">
@@ -22,13 +24,12 @@
             </div>
     </div>
 </div>
-{{!-- the /each block migght go here --}}
 </div>
 
 {{!-- comments start underneath to keep this there --}}
 {{#each comments}}
-<div class="d-flex justify-content-center">
-    <div class="card m-2"style="width: 70rem; height: 10rem; overflow-y: scroll;">
+<div class="d-flex justify-content-center m-3">
+    <div class="card d-flex justify-content-center m-3"style="width: 70rem; height: 10rem; overflow-y: scroll;">
         <div class="card-header">{{user.first_name}}</div>
         <div class="card-body">
             <p class="card-text">{{body}}</p>
@@ -36,7 +37,7 @@
     </div>
 </div>
 {{/each}}
-
+{{!-- submit new commment onto card--}}
  <div class="container">
         <div class="form-group">
             <label for="comment">What's On Your Mind? 📝</label>
@@ -46,7 +47,7 @@
             <button type="button" class="btn btn-link" id="airplaneButton"><img src="/images/message.png" alt="paper air plane" style="width: 40px;" data-toggle="tooltip" data-placement="top" title="Submit my comment"></button>
         </div>
 </div>
-
+{{!-- if person did not type anything before submitting --}}
  <div class="modal fade" id="emptycomment" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -61,7 +62,7 @@
     </div>
   </div>
 </div>
-
+{{!-- if comment has beeen submitted sucessfuly --}}
  <div class="modal fade" id="commentcreated" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">

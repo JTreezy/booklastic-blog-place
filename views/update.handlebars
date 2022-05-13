@@ -1,7 +1,7 @@
 <h2  class="bigTitle" style="font-size: 80px; padding: 20px;">{{first_name}}'s Library</h2>
     <!-- this is where the review input starts -->
     <div class="container">
-        <h3 class="d-flex justify-content-center p-5">Your Review</h3>
+        <h3 class="d-flex justify-content-center p-5"> Update Your Review</h3>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text">Review Title</span>
@@ -10,7 +10,7 @@
     </div>
         <!-- this is where the authore and title autopopulate-->
     <div class="container" id="autopopulatecontainer">
-        <ul class="m-3 row">
+        <ul class="m-3 d-flex">
             <li class="list-group-item disabled mb-2 col-8" id="autopopTitle">{{book.title}}</li>
             <li class="list-group-item disabled mb-2 col" id="autopopAuth">{{book.author}}</li>
         </ul>
@@ -26,7 +26,7 @@
             </div>
         </div>
     </div>
-
+{{!-- modal for the review being updated --}}
 <div class="modal fade" id="blogupdated" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">

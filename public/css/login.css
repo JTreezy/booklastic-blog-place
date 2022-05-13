@@ -213,6 +213,7 @@ h6 span{
 }
 
 /* This is for the main pages  */
+/* media querries start here  */
 @media screen and (max-width: 425px) {
   .bigTitle {
     font-size: 70px !important;
