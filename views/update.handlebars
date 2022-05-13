@@ -1,7 +1,7 @@
-<h2 style="font-size: 80px; padding: 20px;">{{first_name}}'s Library</h2>
+<h2  class="bigTitle" style="font-size: 80px; padding: 20px;">{{first_name}}'s Library</h2>
     <!-- this is where the review input starts -->
     <div class="container">
-        <h3 class="d-flex justify-content-center p-5">Your Review</h3>
+        <h3 class="d-flex justify-content-center p-5"> Update Your Review</h3>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text">Review Title</span>
@@ -10,7 +10,7 @@
     </div>
         <!-- this is where the authore and title autopopulate-->
     <div class="container" id="autopopulatecontainer">
-        <ul class="m-3 row">
+        <ul class="m-3 d-flex">
             <li class="list-group-item disabled mb-2 col-8" id="autopopTitle">{{book.title}}</li>
             <li class="list-group-item disabled mb-2 col" id="autopopAuth">{{book.author}}</li>
         </ul>
@@ -22,11 +22,11 @@
             <label for="comment">Review 📝</label>
             <textarea class="form-control" rows="5" id="reviewEl">{{review}}</textarea>
             <div class="d-flex justify-content-end my-4">
-                <button type="button" class="btn btn-link editbtn" id="updatebtn" style="padding:10px;" value="{{id}}" data-toggle="tooltip" data-placement="top" title="Update my review"><img src="/images/update.png" alt="update icon" style="width:50px;"></button>
+                <button type="button" class="btn btn-link editbtn" id="updatebtn" style="padding:10px;" value="{{id}}" data-toggle="tooltip" data-placement="top" title="Update my review"><img src="/images/updateicon-1.png" alt="update icon" style="width:50px;"></button>
             </div>
         </div>
     </div>
-
+{{!-- modal for the review being updated --}}
 <div class="modal fade" id="blogupdated" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">

@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
+// require all api routes here and export
+
 const userRoutes = require("./userRoutes");
 router.use("/users",userRoutes);
 

@@ -1,13 +1,14 @@
 {{#if loggedIn}}
-<h2 style="font-size: 80px; padding: 20px;">Welcome, {{first_name}}!</h2>
+<h2 class="bigTitle" style="font-size: 80px; padding: 20px;">Welcome, {{first_name}}!</h2>
 {{else}}
-<h2 style="font-size: 80px; padding: 20px;">Welcome to the Club!</h2>
+<h2 class="bigTitle"style="font-size: 80px; padding: 20px;">Welcome to the Club!</h2>
 <h4 class="px-5">Please log in!</h4>
 {{/if}}
+{{!-- creates each blog on the page  --}}
 <div class="container d-flex flex-wrap justify-content-around">
 {{#each blogs}}
     <div class="d-flex">
-        <div class="p-1">
+        <div class="p-1 smallsize">
             <div class="card text-dark bg-warning mb-3" style="width: 18rem;">
                 <div class="card-header">
                     <div>{{title}}</div>
@@ -22,10 +23,10 @@
                     <h5 class="card-title">{{name}}</h5>
                     {{/each}}
                     <p class="card-text" style="height: 7rem; overflow-y: scroll;">{{review}}</p>
-                <div class="card-footer bg-transparent d-flex justify-consent-between p-0">
+                <div class="bg-transparent d-flex justify-consent-between p-0">
                     <ul class="d-flex p-0" style="list-style-type:none;">
                         <li style="padding-top:5px; padding-right: 5px;">
-                            <button type="button" class="btn btn-link commentbtn" data-toggle="tooltip" data-placement="top" title="Read or add comments" style="padding:10px;" value="{{id}}"><img src="/images/message.png" alt="pencil with a text bubble underneath it" style="width: 40px;"></button>
+                            <button type="button" class="btn btn-link commentbtn smallBTN" data-toggle="tooltip" data-placement="top" title="Read or add comments" style="padding:10px;" value="{{id}}"><img src="/images/message.png" alt="pencil with a text bubble underneath it" class= "smallIMG"style="width: 40px;"></button>
                         </li>
                     </ul>
                 </div>

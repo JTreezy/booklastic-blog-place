@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const {User, Blog, Book, Comment, Genre} = require("../../models");
 
-//find all
+//find all books with associated blog posts and their genres.
 router.get("/", (req, res) => {
   Book.findAll({
     include: [Blog, Genre]
@@ -15,7 +15,8 @@ router.get("/", (req, res) => {
       res.status(500).json({ msg: "an error occured", err });
     });
 });
-//find one
+
+//find one book with associated blog posts and genre.
 router.get("/:id", (req, res) => {
   Book.findByPk(req.params.id,{include: [Blog, Genre]})
     .then(dbBook => {
@@ -27,6 +28,7 @@ router.get("/:id", (req, res) => {
     });
 });
 
+//find one book searching by title - with associated blog posts and genre. Post request because being sent title and can't send get request with a req.body? 
 router.post("/findbytitle", (req, res) => {
   Book.findOne({
     where:{
@@ -34,20 +36,17 @@ router.post("/findbytitle", (req, res) => {
     }
   }).then(foundBook=> {
     if (!foundBook) {
-      return res.status(400).json({msg: 'no book by that name'})
+      return res.status(404).json({msg: 'no book by that name'})
     }
     const hbsBook = foundBook.get({plain:true})
-    console.log(foundBook)
-    console.log('==============')
-    console.log(hbsBook)    
     return res.json(hbsBook);
   }).catch(err => {
       console.log(err);
-      // res.status(500).json({ msg: "an error occured", err });
+      res.status(500).json({ msg: "an error occured", err });
     });
 });
 
-//create book
+//create book (must be logged in). add genres using many-many relationship
 router.post("/", (req, res) => {
   if(!req.session.user){
     return res.status(401).json({msg:"Please login!"})
@@ -66,7 +65,7 @@ router.post("/", (req, res) => {
     });
 });
 
-//update book
+//update book - not using this route
 router.put("/:id", (req, res) => {
   Book.update(req.body, {
     where: {
@@ -81,7 +80,7 @@ router.put("/:id", (req, res) => {
   });
 });
 
-//delete a book
+//delete a book - not using this route
 router.delete("/:id", (req, res) => {
   Book.destroy({
     where: {

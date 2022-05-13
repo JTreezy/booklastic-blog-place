@@ -1,5 +1,7 @@
 const router = require('express').Router();
 
+// require api and front end folder; export
+
 const apiRoutes = require('./api');
 router.use('/api', apiRoutes)
 
