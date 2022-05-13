@@ -213,3 +213,29 @@ h6 span{
 }
 
 /* This is for the main pages  */
+@media screen and (max-width: 425px) {
+  .bigTitle {
+    font-size: 70px !important;
+  }
+}
+@media screen and (max-width: 375px) {
+  .bigTitle {
+    font-size: 60px !important;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .bigTitle {
+    font-size: 40px !important;
+  }
+  .smallsize {
+    width: 243px !important;
+    display: flex !important;
+    height: 450px;
+  }
+  .smallBTN {
+    position: relative !important;
+    bottom: 5px !important;
+  }
+  
+}
