@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const {User, Blog, Book, Comment, Genre} = require("../../models");
 
-//find all
+//find all genres with associated books
 router.get("/", (req, res) => {
   Genre.findAll({ 
     include: [Book]
@@ -15,7 +15,8 @@ router.get("/", (req, res) => {
       res.status(500).json({ msg: "an error occured", err });
     });
 });
-//find one
+
+//find one genre with assoicated books
 router.get("/:id", (req, res) => {
   Genre.findByPk(req.params.id,
     {include: [Book]
@@ -29,7 +30,7 @@ router.get("/:id", (req, res) => {
     });
 });
 
-//create genre
+//create genre - must be logged in
 router.post("/", (req, res) => {
   if(!req.session.user){
     return res.status(401).json({msg:"Please log in first!"})
@@ -46,7 +47,7 @@ router.post("/", (req, res) => {
     });
 });
 
-//update genre
+//update genre - not using this route
 router.put("/:id", (req, res) => {
   Genre.update(req.body, {
     where: {
@@ -61,7 +62,7 @@ router.put("/:id", (req, res) => {
   });
 });
 
-//delete a genre
+//delete a genre - not using this route
 router.delete("/:id", (req, res) => {
   Genre.destroy({
     where: {

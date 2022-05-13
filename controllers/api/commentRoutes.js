@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const {User, Blog, Book, Comment, Genre} = require("../../models");
 
-//find all
+//find all comments with associated users and blog reviews
 router.get("/", (req, res) => {
   Comment.findAll({ 
     include: [User, Blog]
@@ -15,7 +15,8 @@ router.get("/", (req, res) => {
       res.status(500).json({ msg: "an error occured", err });
     });
 });
-//find one
+
+//find one comment with associated user and blog reviews
 router.get("/:id", (req, res) => {
   Comment.findByPk(req.params.id,
     {include: [User, Blog]
@@ -29,7 +30,7 @@ router.get("/:id", (req, res) => {
     });
 });
 
-//create Comment
+//create commment (must be logged in). associate to user and blog review.
 router.post("/", (req, res) => {
   if(!req.session.user){
     return res.status(401).json({msg:"Please log in first!"})
@@ -48,7 +49,7 @@ Comment.create({
     });
 });
 
-//update Comment
+//update comment - not using this route
 router.put("/:id", (req, res) => {
   Comment.update(req.body, {
     where: {
@@ -63,7 +64,7 @@ router.put("/:id", (req, res) => {
   });
 });
 
-//delete a Comment
+//delete a comment - not using this route
 router.delete("/:id", (req, res) => {
   Comment.destroy({
     where: {
