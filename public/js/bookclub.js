@@ -3,7 +3,6 @@ var socket = io();
 var messages = document.getElementById('messages');
 var chatApp = document.getElementById('chatApp');
 var sentMessage = document.getElementById('sentMessage');
-var sendit = document.getElementById('sendit');
 var chatMessage = document.getElementById('chat-message');
 
 var senderID;
@@ -12,8 +11,8 @@ var senderName;
 var currentUser = document.getElementById('name').getAttribute('data-value');
 console.log(currentUser)
 
-//takes the message written in the input box inside bookclub.handlebars to send through socket.io
-sendit.addEventListener('click', function(e) {
+//takes the message written in the form input inside bookclub.handlebars to send through socket.io
+chatApp.addEventListener('submit', function(e) {
   e.preventDefault();
   if (sentMessage.value) {
     socket.emit('chat message', {sentMessage:sentMessage.value, userName:currentUser, time: moment().format('h:mm:ss a') });
