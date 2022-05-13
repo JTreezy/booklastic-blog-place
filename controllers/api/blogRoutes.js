@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const {User, Blog, Book, Comment, Genre} = require("../../models");
 
-//find all
+//find all blog reviews with associated user, comments, and book info
 router.get("/", (req, res) => {
   Blog.findAll({ 
     include: [User, Comment, {model: Book, include: [Genre]}]
@@ -15,7 +15,8 @@ router.get("/", (req, res) => {
       res.status(500).json({ msg: "an error occured", err });
     });
 });
-//find one
+
+//find one blog review with associated user, comments, and book info
 router.get("/:id", (req, res) => {
   Blog.findByPk(req.params.id, {
     include: [User, Comment, {model: Book, include: [Genre]}]
@@ -29,7 +30,7 @@ router.get("/:id", (req, res) => {
     });
 });
 
-//create Blog
+//create blog review; pull user id from session and pull book id from page. must be logged in to post. 
 router.post("/", (req, res) => {
   if(!req.session.user){
     return res.status(401).json({msg:"Please log in first!"})
@@ -49,7 +50,7 @@ router.post("/", (req, res) => {
     });
 });
 
-//update Blog
+//update blog review post - title or review. find post to update via id from query params. 
 router.put("/:id", (req, res) => {
   Blog.update({
     title: req.body.title,
@@ -67,7 +68,7 @@ router.put("/:id", (req, res) => {
   });
 });
 
-//delete a Blog
+//delete a blog review
 router.delete("/:id", (req, res) => {
   Blog.destroy({
     where: {

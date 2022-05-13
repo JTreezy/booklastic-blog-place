@@ -3,6 +3,7 @@ const router = express.Router();
 const {User,Blog,Comment} = require("../../models/");
 const bcrypt  = require("bcrypt");
 
+// get session object
 router.get('/sessionID', (req, res) => {
   console.log(req.sessionID)
   const sessionObj = {
@@ -12,7 +13,7 @@ router.get('/sessionID', (req, res) => {
   res.json(sessionObj)
 })
 
-//find all
+//find all users with associated blogs and comments
 router.get("/", (req, res) => {
   User.findAll({
     include:[Blog, Comment]
@@ -25,12 +26,14 @@ router.get("/", (req, res) => {
       res.status(500).json({ msg: "an error occured", err });
     });
 });
+
+// logout
 router.get("/logout",(req,res)=>{
   req.session.destroy();
   res.redirect("/")
 })
 
-//find one
+//find one user by user id
 router.get("/:id", (req, res) => {
   User.findByPk(req.params.id,{})
     .then(dbUser => {
@@ -42,7 +45,7 @@ router.get("/:id", (req, res) => {
     });
 });
 
-//create user
+//create new user. run hooks (pw bcrpyt). create user session upon creation to automatically log them in.
 router.post("/", (req, res) => {
   User.create(req.body, {individualHooks: true})
     .then(newUser => {
@@ -51,7 +54,6 @@ router.post("/", (req, res) => {
         first_name:newUser.first_name,
         email:newUser.email
       }
-      console.log("creating user!")
       res.json(newUser);
     })
     .catch(err => {
@@ -60,7 +62,7 @@ router.post("/", (req, res) => {
     });
 });
 
-//login
+//login user; find one user by email address. if not found (or password incorrect with bcrypt compare) send 400 bad request (client error). if successful, create session for user.
 router.post("/login", (req, res) => {
   User.findOne({
     where:{
@@ -86,7 +88,7 @@ router.post("/login", (req, res) => {
     });
 });
 
-//update user
+//update user - not using this route
 router.put("/:id", (req, res) => {
   User.update(req.body, {
     where: {
@@ -101,7 +103,7 @@ router.put("/:id", (req, res) => {
   });
 });
 
-//delete a user
+//delete a user - not using this route
 router.delete("/:id", (req, res) => {
   User.destroy({
     where: {
