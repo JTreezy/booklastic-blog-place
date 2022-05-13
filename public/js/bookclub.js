@@ -77,7 +77,7 @@ function myMessage(msg) {
 
   //stylize the container to make every message uniform in dimensions
   const chatBubbleContainer = document.createElement('div')
-  chatBubbleContainer.setAttribute('style', 'width: 100rem; height: auto;')
+  chatBubbleContainer.setAttribute('style', 'width: 95%; height: auto;')
   chatBubbleContainer.appendChild(imageContainer)
   chatBubbleContainer.appendChild(chatBubble)
 
