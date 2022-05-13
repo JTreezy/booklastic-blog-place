@@ -8,3 +8,4 @@ const withAuth = (req, res, next) => {
   
 module.exports = withAuth;
   
+// withauth function checks if user is logged in; redirects to login page if not
