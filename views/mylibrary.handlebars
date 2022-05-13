@@ -5,6 +5,7 @@
 <!-- beginning card -->
 <h2 class="bigTitle" style="font-size: 80px; padding: 20px;">{{first_name}}'s Library</h2>
 <div class="container d-flex flex-wrap justify-content-around">
+  {{!-- each blog that renders on the pag styling starts  --}}
 {{#each blogs}}
 <div class="d-flex">
         <div class="px-1 smallsize">
@@ -41,6 +42,7 @@
 </div>
 {{/each}}
 </div>
+{{!-- button to add a review --}}
 <div class="d-flex justify-content-center">
     <button type="button" class="btn btn-dark" id="customBTN"><a href="/review">Add a Review!</a></button>
 </div>
