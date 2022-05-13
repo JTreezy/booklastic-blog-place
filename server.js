@@ -40,12 +40,14 @@ const hbs = exphbs.create({});  //create handlebars engine
 app.engine('handlebars', hbs.engine);  //create a veiw engine
 app.set('view engine', 'handlebars');  //set out to use the view engine
 
+//pass through session.user to grab the user information
 app.use("/", allRoutes);
 app.get('/bookclub', (req, res) => {
   res.sendFile(__dirname + 'main');
   console.log("session",req.session.user)
 });
 
+//initialize socket server side
 sequelize.sync({ force: false }).then(function() {
   http.listen(PORT, function() {
       console.log("App listening on PORT " + PORT);
@@ -60,6 +62,7 @@ sequelize.sync({ force: false }).then(function() {
         });
         socket.on('disconnect', () => {
           console.log('user disconnected');
+          socket.disconnect();
         });
       })
     });
