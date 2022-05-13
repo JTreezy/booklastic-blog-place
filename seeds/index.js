@@ -68,7 +68,7 @@ const genres = [
         name: "Business"
     },
     {
-        name: "True Adeventure/Crime"
+        name: "True Adventure/Crime"
     },
     {
         name: "Psychology"
@@ -161,6 +161,10 @@ const books = [
     {
         title: "Greenlights",
         author: "Matthew McConaughey",
+    },
+    {
+        title: "101 Manatee Jokes!",
+        author: "Joe Rehfuss",
     }
 ]
 
@@ -224,17 +228,17 @@ const feedMe = async ()=>{
         await Book.bulkCreate(books);
         await Blog.bulkCreate(blogs);
         await Comment.bulkCreate(comments);
-        await dBgenres[0].addBooks([1]);
-        await dBgenres[1].addBooks([2, 3]);
-        await dBgenres[2].addBooks([4, 5, 6]);
-        await dBgenres[3].addBooks([7, 8, 1]);
-        await dBgenres[4].addBooks([9, 10]);
-        await dBgenres[5].addBooks([11, 13]);
-        await dBgenres[6].addBooks([12, 14, 4]);
-        await dBgenres[7].addBooks([15, 16]);
-        await dBgenres[8].addBooks([17, 18]);
-        await dBgenres[9].addBooks([19, 12]);
-        await dBgenres[10].addBooks([20, 16]);
+        await dBgenres[1].addBooks([4, 7, 9, 10]);
+        await dBgenres[3].addBooks([7, 9]);
+        await dBgenres[7].addBooks([2, 5, 6, 10, 12]);
+        await dBgenres[8].addBooks([4, 16, 20]);
+        await dBgenres[9].addBooks([16]);
+        await dBgenres[11].addBooks([1, 3, 8, 19]);
+        await dBgenres[13].addBooks([1, 11, 13, 14, 15, 17]);
+        await dBgenres[14].addBooks([11]);
+        await dBgenres[15].addBooks([1, 3, 8, 18, 19]);
+        await dBgenres[16].addBooks([13, 15, 17]);
+        await dBgenres[17].addBooks([11, 14, 18]);
         process.exit(0);
     } catch(err){
         console.log(err)
