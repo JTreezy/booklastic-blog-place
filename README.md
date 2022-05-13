@@ -72,7 +72,7 @@ NPM Packages
 ---
 ## Usage
 
-After following the instructions in installation: 
+After following the instructions in installation:
 1. Open the database file in your terminal. 
 2. Run command `"mysql -uroot -p"` and enter your password (note: keystrokes will not show).
 3. Run command `"SOURCE schema.sql"` to set up the database and tables.
@@ -81,26 +81,26 @@ After following the instructions in installation:
 6. Create a file called `.env` in the root folder of the program. In this folder include the following information: <br>
   - `DB_NAME = 'ecommerce_db'`
   - `DB_USER = 'your username'`
-  - `DB_PASS = 'your password'` 
-  - `SESSION_SECRET = 'your session secret'` 
+  - `DB_PASS = 'your password'`
+  - `SESSION_SECRET = 'your session secret'`
 <br>
 7. Open the "server.js" file in your integrated terminal. 
 8. Run command `"npm run seed"` (or "node seeds/index.js") to seed the database if desired.
-9. Run command `"npm run start"` (or "node server.js"). Alternatively, if you have Nodemon installed, run `"npm run watch"` (or "nodemon server.js"). 
+9. Run command `"npm run start"` (or "node server.js"). Alternatively, if you have Nodemon installed, run `"npm run watch"` (or "nodemon server.js").
 10. Open `'localhost:3000'` in your browser and see the site in action.
-11. Enter login/logout/signup requests as you please, create a new reviews or update/delete an existing one, or add comments to others reviews, or chat with the community! 
-12. When finished, run `CONTROL-C` in terminal to end stop nodemon, and trash the session. 
+11. Enter login/logout/signup requests as you please, create a new reviews or update/delete an existing one, or add comments to others reviews, or chat with the community!
+12. When finished, run `CONTROL-C` in terminal to end stop nodemon, and trash the session.
 
 ---
 ## User-Story
 
 AS A BOOK LOVER <br>
 I WANT a community of people like me who love to read <br>
-SO THAT I can express my thoughts on books I love (or don't!), further my understanding of books through dialogue with others, find new book recommendations, and share my passion for literature! 
+SO THAT I can express my thoughts on books I love (or don't!), further my understanding of books through dialogue with others, find new book recommendations, and share my passion for literature!
 
 ---
 ## Acceptance-Criteria
-This project was completed for the Unversity of Washington Web Development Bootcamp and has the following requirements: 
+This project was completed for the Unversity of Washington Web Development Bootcamp and has the following requirements:
 - Must use Node and Express web server
 - Must be backed by a MySQL database with a Sequelize ORM 
 - Must have both GET and POST routes for retrieving and adding new data
@@ -114,7 +114,7 @@ This project was completed for the Unversity of Washington Web Development Bootc
 ---
 ## Demo
 
-Check out this [video](URL) for a demonstration of this project. 
+Check out this [video](URL) for a demonstration of this project.
 
 ___
 ## Screenshots
@@ -125,7 +125,7 @@ Entity Relationship Diagram
 ---
 ## Contributing
 
-This project was completed as a group as 'project 2' for the University of Washington Web Development Bootcamp. If you would like to contribute, please feel free and contact us with questions. 
+This project was completed as a group as 'project 2' for the University of Washington Web Development Bootcamp. If you would like to contribute, please feel free and contact us with questions. The login page was created by ![https://codepen.io/ig_design] and the artists from Wissawa Khamsriwath, and other contributors made the icons for the buttons.
 
 ---
 ## Questions
@@ -142,7 +142,7 @@ If you have any questions feel free to contact our team:
 
 [MIT License](./LICENSE) <br>
 
-Copyright (c) 2022 
+Copyright (c) 2022
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
