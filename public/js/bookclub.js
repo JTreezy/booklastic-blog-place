@@ -66,6 +66,7 @@ function myMessage(msg) {
   imageContainer.appendChild(imageIcon)
 
   const chatBubbleContainer = document.createElement('div')
+  chatBubbleContainer.setAttribute('style', 'width: 30rem; overflow-y: scroll; justify-content-center')
   chatBubbleContainer.setAttribute('class', 'chatBubbleContainer')
   chatBubbleContainer.appendChild(imageContainer)
   chatBubbleContainer.appendChild(chatBubble)
