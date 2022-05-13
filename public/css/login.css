@@ -237,5 +237,11 @@ h6 span{
     position: relative !important;
     bottom: 5px !important;
   }
-  
+  .BookContainer {
+    padding: 0px !important;
+  }
+  .smallphone {
+    padding: 10px !important;
+  }
+ 
 }
