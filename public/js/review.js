@@ -65,6 +65,7 @@ bookSubmit.addEventListener("click", event => {
         autopopTitle.textContent=data.title;
         autopopAuth.textContent=data.author;
         autopopTitle.setAttribute('value', data.id);
+        
     })
 })
 
