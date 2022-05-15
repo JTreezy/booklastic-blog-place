@@ -109,7 +109,7 @@ This project was completed for the Unversity of Washington Web Development Bootc
 ---
 ## Demo
 
-Check out this [video](URL) for a demonstration of this project.
+Check out this [video](https://www.canva.com/design/DAFAzSpfAL4/tWj5cDVl5fzloHScH71d1A/watch?utm_content=DAFAzSpfAL4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink) for a demonstration of this project.
 
 ___
 ## Screenshots
@@ -134,7 +134,7 @@ GIF of Booklastic
 ---
 ## Contributing
 
-This project was completed as a group as 'project 2' for the University of Washington Web Development Bootcamp. If you would like to contribute, please feel free and contact us with questions. The login page was created by ![https://codepen.io/ig_design] and the artists from Wissawa Khamsriwath, and other contributors made the icons for the buttons.
+This project was completed as a group as 'project 2' for the University of Washington Web Development Bootcamp. If you would like to contribute, please feel free and contact us with questions. The login page was created by Ivan D. [here](https://codepen.io/ig_design) and the artists from Wissawa Khamsriwath, and other contributors made the icons for the buttons.
 
 ---
 ## Questions
