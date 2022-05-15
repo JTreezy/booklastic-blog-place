@@ -39,6 +39,7 @@ function pageLoad() {
 
 // book submit button clicked
 bookSubmit.addEventListener("click", event => {
+    event.preventDefault();
     // trim input 
     thisBook = bookInput.value.trim();
     // if empty, send modal and redirect to newbook page
@@ -50,8 +51,7 @@ bookSubmit.addEventListener("click", event => {
             location.href='/newbook'
         })
         return;
-    }
-    event.preventDefault();
+    } else {
     // create object with book
     var bookSelection = {
         title:thisBook};
@@ -64,7 +64,8 @@ bookSubmit.addEventListener("click", event => {
         }
     }).then(res=>{
         if(res.ok){ 
-            return res.json()
+            console.log(res.json)
+            return res.json();
         } else {
             // if book is not in our system, redirect to newbook page
             var myModal = new bootstrap.Modal(document.getElementById('booknotinDB'))
@@ -73,8 +74,10 @@ bookSubmit.addEventListener("click", event => {
                 event.preventDefault();
                 location.href='/newbook'
             })
+            throw res.json();
         }
     }).then(data => {
+        console.log(data)
         // load selected book title and author to bottom half of page (where the review section is) - element was previously hidden so showing it
         autopopulatecontainer.setAttribute('class', 'container')
         autopopTitle.textContent=data.title;
@@ -82,6 +85,7 @@ bookSubmit.addEventListener("click", event => {
         autopopTitle.setAttribute('value', data.id);
         
     })
+}
 })
 
 // review submit button clicked
