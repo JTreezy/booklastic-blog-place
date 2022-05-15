@@ -32,6 +32,16 @@ document.querySelector("#loginButton").addEventListener("click",e=>{
 // on clicking signup button
 document.querySelector("#signupButton").addEventListener("click",e=>{
     e.preventDefault();
+    var signupPassword = document.querySelector("#signupPassword").value;
+    if (signupPassword.length < 8) {
+        var myModal = new bootstrap.Modal(document.getElementById('signuppwshort'))
+        myModal.show();
+        $('#signuppwshortclose').on("click", function (event){
+            event.preventDefault();
+            location.reload();
+            return;
+        })
+    } else {
     // create user object
     const userObj = {
         first_name:document.querySelector("#signupFirstname").value,
@@ -64,5 +74,6 @@ document.querySelector("#signupButton").addEventListener("click",e=>{
             })
         }
     })
+}
 })
 
