@@ -1,7 +1,10 @@
 {
   "name": "booklastic-blog-place",
   "version": "1.0.0",
-  "description": "",
+  "engines": {
+    "node": "16.14.2"
+  },
+  "description": "welcome to our application where bookies can bond over books!",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -15,8 +18,8 @@
     "url": "git+https://github.com/JTreezy/booklastic-blog-place.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Andrew Ryu, Jonathan Tran, Brooke Love, Haley Seymour",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/JTreezy/booklastic-blog-place/issues"
   },
