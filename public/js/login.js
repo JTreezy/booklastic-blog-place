@@ -39,8 +39,9 @@ document.querySelector("#signupButton").addEventListener("click",e=>{
         $('#signuppwshortclose').on("click", function (event){
             event.preventDefault();
             location.reload();
+            return;
         })
-    }
+    } else {
     // create user object
     const userObj = {
         first_name:document.querySelector("#signupFirstname").value,
@@ -73,5 +74,6 @@ document.querySelector("#signupButton").addEventListener("click",e=>{
             })
         }
     })
+}
 })
 
