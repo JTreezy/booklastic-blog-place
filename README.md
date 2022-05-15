@@ -119,8 +119,22 @@ Check out this [video](URL) for a demonstration of this project.
 ___
 ## Screenshots
 
-Entity Relationship Diagram 
+Entity Relationship Diagram
 ![ERD](./assets/screenshots/ERD.png)
+
+Wireframe
+![Wireframe](./assets/screenshots/WIREFRAME.jpg)
+
+Shots from Website
+![myLIbrary](./assets/screenshots/myLibrary.png)
+
+![bookchat](./assets/screenshots/bookchat.png)
+
+![review](./assets/screenshots/review.png)
+
+GIF of Booklastic
+
+![booklastic](./assets/screenshots/booklastic_Video.gif)
 
 ---
 ## Contributing
