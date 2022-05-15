@@ -11,6 +11,10 @@ var senderName;
 var currentUser = document.getElementById('name').getAttribute('data-value');
 console.log(currentUser)
 
+Window.addEventListener('beforeunload', function() {
+  socket.emit('disconnect')
+})
+
 //takes the message written in the form input inside bookclub.handlebars to send through socket.io
 chatApp.addEventListener('submit', function(e) {
   e.preventDefault();
