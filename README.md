@@ -1,10 +1,4 @@
-# [Booklastic-Blog-Place](URL)
-
-TODO: <br>
-Credit for login/signup styling <br>
-Screenshots/gifs of app <br>
-Video demo of usage <br>
-Heroku link <br>
+# [Booklastic-Blog-Place](https://fathomless-bastion-58602.herokuapp.com/)
 
 ![Badge](https://img.shields.io/badge/license-MIT-blue)
 
@@ -56,6 +50,7 @@ General Technologies:
 - [Git](https://git-scm.com/)
 - [Heroku](https://www.heroku.com/)
 - [Insomnia](https://insomnia.rest/)
+- [Moment](https://momentjs.com/)
 
 NPM Packages
 - [nodemon](https://www.npmjs.com/package/nodemon) 
