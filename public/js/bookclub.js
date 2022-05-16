@@ -11,7 +11,7 @@ var senderName;
 var currentUser = document.getElementById('name').getAttribute('data-value');
 console.log(currentUser)
 
-Window.addEventListener('beforeunload', function() {
+window.addEventListener('beforeunload', function() {
   socket.emit('disconnect')
 })
 
